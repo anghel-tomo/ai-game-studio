@@ -427,3 +427,58 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# Environment
+*.env
+
+# Node
+node_modules/
+
+# Visual Studio
+.vs/
+bin/
+obj/
+
+# Unity
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+UserSettings/
+
+*.csproj
+*.sln
+*.unityproj
+
+# Builds
+*.apk
+*.aab
+*.ipa
+*.app
+*.exe
+*.zip
+
+# Firebase
+.firebase/
+firebase-debug.log
+
+# Secrets
+*.key
+*.pem
+*.p12
+secrets/
+
+# AI tools
+.claude/
+.cursor/
+.codex/
+.gemini/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
