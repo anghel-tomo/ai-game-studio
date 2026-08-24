@@ -1,6 +1,6 @@
 # Session Handover
 
-Version: 1.0.0  
+Version: 1.0.1  
 Last Updated: 2026-08-24  
 Status: Active
 
@@ -74,67 +74,17 @@ Status:
 
 ### Completed
 
-実際に完了し、再取得またはEvidenceで確認できる内容だけを書く。
-
-### Changed Files
-
-Fileごとに変更目的を1行で記載する。CommitまたはPull Requestへ対応付ける。
-
-### Decisions
-
-新しい決定はDecision LogのIDを参照する。未承認案をDecisionとして記載しない。
-
-### Tests / Reviews
-
-実行したTest、Review、Link Check、Buildを記載する。実行していない場合はNot Runとする。
-
-### Not Completed
-
-予定していたが実行していない内容を記載する。次担当がCompletedと誤解しないようにする。
-
-### Blockers and Risks
-
-権限、情報、環境、能力、費用、権利、外部接続の問題を記載する。
-
-### Human Approval Required
-
-削除、mainへのマージ、有料処理、公開等の承認待ちを記載する。
-
-### Restart Procedure
-
-次担当が最初に読む文書、取得するBranch、実行する確認を順番に記載する。
-
----
-
-## 5. Current Handover
-
-Date: 2026-08-24  
-Session / Task ID: DOCS-FOUNDATION-001  
-Executor: Codex  
-Repository: `anghel-tomo/ai-game-studio`  
-Branch: `codex/aios-docs-revision`  
-Base Branch: `main`  
-Status: IN_PROGRESS / NOT MERGED
-
-### Goal
-
-最終目標として承認された文書構成 `00`～`12`、`91`～`93`、`99` を作成し、AI Game Studioの役割、Pipeline、承認境界、運用方法を整備する。
-
-### Completed
-
-- `00_AI_BOOTSTRAP.md`をVersion 2.0.0へ更新
-- `01_PROJECT_OVERVIEW.md`をVersion 2.0.0へ更新
-- `02_AI_ROLES.md`を新規作成
-- `03_AI_RULES.md`を新規作成
-- `04_PROJECT_STATUS.md`を新規作成
-- `05_DECISION_LOG.md`を新規作成
-- `06_ARCHITECTURE.md`を新規作成
-- `07_ASSET_PIPELINE.md`を新規作成
-- `08_SCENARIO_PIPELINE.md`を新規作成
-- `09_QA_RELEASE_POLICY.md`を新規作成
-- `10_REPOSITORY_STRUCTURE.md`を新規作成
-- `11_PROJECT_MEMORY.md`を新規作成
-- `12_SESSION_HANDOVER.md`を新規作成
+- `00_AI_BOOTSTRAP.md`と`01_PROJECT_OVERVIEW.md`をVersion 2.0.0へ更新
+- 最終構成の`02`～`12`を新規作成
+- `91_AI_EXECUTION_PROTOCOL.md`を新規作成
+- `92_AI_PLAYBOOK.md`を新規作成
+- `93_AI_TASK_PROTOCOL.md`を新規作成
+- `99_AI_CONTEXT.md`を新規作成
+- READMEを最終構成とApache License 2.0へ整合
+- 旧番号の`02_AI_RULES.md`、`03_PROJECT_STATUS.md`、`04_SESSION_HANDOVER.md`をDeprecated化
+- GitHub上の必須17文書を再取得し、存在とMetadataを確認
+- READMEの相対Link 26件を検査し、Broken Link 0件を確認
+- 3者合議、Stable Diffusion、Human-Started Colab、Live2D未検証、Scenario方針の横断整合性を確認
 
 ### Confirmed Decisions
 
@@ -150,22 +100,23 @@ Status: IN_PROGRESS / NOT MERGED
 ### Tests / Reviews
 
 - GitHub上の作成結果再取得：実施
-- Metadata確認：実施
-- 文書間リンク全件検査：Operational Documents作成後に実施予定
+- 必須17文書の存在確認：Pass
+- Version / Last Updated / Status確認：Pass
+- README Link検査：26件、Broken 0件
+- License表記：Apache License 2.0へ一致
+- Legacy File：3件ともDEPRECATED
+- 主要方針横断確認：Pass
 - Independent Reviewer AI：未実施
-- Unity / Firebase / Colab / Live2D実機Test：未実施
+- Unity / Firebase / Colab / Live2D実機Test：文書Taskの範囲外、未実施
 
 ### Not Completed
 
-- `91_AI_EXECUTION_PROTOCOL.md`
-- `92_AI_PLAYBOOK.md`
-- `93_AI_TASK_PROTOCOL.md`
-- `99_AI_CONTEXT.md`
-- README更新
-- 旧番号文書のDeprecated化
-- 全文書の自動整合性確認
-- Independent Reviewer AIによる最終Review
+- Independent Reviewer AIによる全体Review
+- Review Findingへの対応
+- 人間による最終確認
+- 旧番号文書の削除判断
 - mainへのマージ
+- Stage 2以降の実装
 
 ### Blockers and Risks
 
@@ -182,19 +133,20 @@ Status: IN_PROGRESS / NOT MERGED
 
 ### Next Actions
 
-1. Operational Documentsを作成する。
-2. READMEと旧文書を整合させる。
-3. 全文書のリンク、Version、用語を検査する。
-4. Independent Reviewer AI候補を提示する。
-5. 人間が確認後、修正またはmainへのマージを判断する。
+1. Independent Reviewer AI候補を決定する。
+2. 作業Branchの17文書とREADMEをReviewさせる。
+3. FindingをCritical / Major / Minor / Suggestionへ分類する。
+4. 必要な修正を同じBranchへ反映する。
+5. 人間が最終差分を確認する。
+6. 人間が旧文書削除とmainへのマージを判断する。
 
 ### Restart Procedure
 
-1. `Docs/99_AI_CONTEXT.md`を読む。未作成の場合は本書を読む。
+1. `Docs/99_AI_CONTEXT.md`を読む。
 2. `Docs/00_AI_BOOTSTRAP.md`を読む。
 3. `codex/aios-docs-revision`の最新Commitを取得する。
 4. `Docs/04_PROJECT_STATUS.md`と本書を確認する。
-5. Not Completedの先頭から再開する。
+5. Independent Reviewから再開する。
 
 ---
 
