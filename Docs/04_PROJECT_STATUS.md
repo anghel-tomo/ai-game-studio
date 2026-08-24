@@ -1,6 +1,6 @@
 # Project Status
 
-Version: 1.0.0  
+Version: 1.0.1  
 Last Updated: 2026-08-24  
 Status: Active
 
@@ -11,11 +11,11 @@ Status: Active
 | Item | Current State |
 |---|---|
 | Project Stage | Stage 1: Governance Foundation |
-| Overall Status | In Progress |
+| Overall Status | Ready for Independent Review |
 | Repository | `anghel-tomo/ai-game-studio` |
 | Default Branch | `main` |
 | Documentation Branch | `codex/aios-docs-revision` |
-| Current Focus | AIOS文書体系の再構築 |
+| Current Focus | Independent Reviewと人間の最終確認 |
 | Human Decision Required | mainへのマージ、旧文書の削除 |
 | Next Major Stage | Stage 2: Reusable Production Foundation |
 
@@ -27,18 +27,26 @@ Status: Active
 
 - GitHubリポジトリを公開し、SSOTとして利用できる状態にした。
 - 基本フォルダ `Docs/`、`Games/`、`Templates/`、`Tools/`、`Workflows/`、`Scripts/`、`Assets/` を作成した。
-- `Docs/00_AI_BOOTSTRAP.md` Version 2.0.0を作成した。
-- `Docs/01_PROJECT_OVERVIEW.md` Version 2.0.0を作成した。
-- 最終文書構成を `00`～`12`、`91`～`93`、`99` とする方針を確定した。
-- 企画をMain Plannerと2名のReviewerで検討し、最大3ラウンドで未合意なら人間へ判断を求める方針を確定した。
-- キャラクターイラストをStable Diffusion + ComfyUI + 有料Google Colabで制作する方針を確定した。
-- Colabセッションは人間が開始し、稼働中にComfyUIとAIOSから操作する方針を確定した。
-- Live2Dは、人間の指示・入力を受け、AIがパーツ制作とパラメーター設計・作成まで担当する目標を確定した。
-- ラノベ系文章を含むシナリオ制作を専用工程として設計する方針を確定した。
+- 最終構成のCore Documents `00`～`12` を作成した。
+- Operational Documents `91`～`93` と `99_AI_CONTEXT.md` を作成した。
+- READMEを新文書構成とApache License 2.0へ整合させた。
+- 旧番号文書3件を削除せずDeprecated化した。
+- 企画の3者合議、最大3ラウンド、人間エスカレーションを文書化した。
+- Stable Diffusion + ComfyUI + Human-Started Colabを文書化した。
+- AIによるLive2Dパーツ・パラメーター作成の目標と未検証範囲を文書化した。
+- ラノベ系Scenario Pipelineを文書化した。
+- GitHub上から全対象Fileを再取得し、必須17文書、Metadata、README Link、主要方針を検査した。
+- README内の相対Link 26件にBroken Linkがないことを確認した。
 
 ---
 
 ## 3. In Progress
+
+- Independent Reviewer AIの選定
+- Independent Reviewer AIによる文書全体Review
+- 人間による最終確認
+- Review Findingがある場合の修正
+- mainへのマージ判断
 
 - Core Documents `02`～`06` の作成
 - Production Documents `07`～`12` の作成
@@ -116,12 +124,12 @@ Not Startedの項目を実装済みとして扱ってはならない。
 
 ## 8. Immediate Next Actions
 
-1. 文書セットを完成させる。
-2. 文書間整合性と旧文書を確認する。
-3. 独立したReviewer AIで最終レビューする。
-4. 人間が修正内容を確認する。
-5. 人間の承認後、mainへマージする。
-6. Stage 2の最初の実装タスクを決定する。
+1. Independent Reviewer AIで文書全体をReviewする。
+2. FindingをSeverity別に整理する。
+3. 必要な修正を作業Branchへ反映する。
+4. 人間が最終差分を確認する。
+5. 人間が旧文書削除の要否とmainへのマージを判断する。
+6. 承認後、Stage 2の最初の実装Taskを決定する。
 
 ---
 
