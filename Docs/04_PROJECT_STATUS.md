@@ -1,6 +1,6 @@
 # Project Status
 
-Version: 1.0.1  
+Version: 1.0.2  
 Last Updated: 2026-08-24  
 Status: Active
 
@@ -15,6 +15,7 @@ Status: Active
 | Repository | `anghel-tomo/ai-game-studio` |
 | Default Branch | `main` |
 | Documentation Branch | `codex/aios-docs-revision` |
+| Draft Pull Request | [#1](https://github.com/anghel-tomo/ai-game-studio/pull/1) |
 | Current Focus | Independent Reviewと人間の最終確認 |
 | Human Decision Required | mainへのマージ、旧文書の削除 |
 | Next Major Stage | Stage 2: Reusable Production Foundation |
