@@ -1,6 +1,6 @@
 # Session Handover
 
-Version: 1.0.1  
+Version: 1.0.2  
 Last Updated: 2026-08-24  
 Status: Active
 
@@ -37,6 +37,7 @@ Session / Task ID:
 Executor:
 Repository:
 Branch:
+Pull Request:
 Base Commit:
 Latest Commit:
 Status:
@@ -74,6 +75,59 @@ Status:
 
 ### Completed
 
+実際に完了し、再取得またはEvidenceで確認できる内容だけを書く。
+
+### Changed Files
+
+Fileごとに変更目的を1行で記載する。CommitまたはPull Requestへ対応付ける。
+
+### Decisions
+
+新しい決定はDecision LogのIDを参照する。未承認案をDecisionとして記載しない。
+
+### Tests / Reviews
+
+実行したTest、Review、Link Check、Buildを記載する。実行していない場合はNot Runとする。
+
+### Not Completed
+
+予定していたが実行していない内容を記載する。次担当がCompletedと誤解しないようにする。
+
+### Blockers and Risks
+
+権限、情報、環境、能力、費用、権利、外部接続の問題を記載する。
+
+### Human Approval Required
+
+削除、mainへのマージ、有料処理、公開等の承認待ちを記載する。
+
+### Next Actions
+
+次担当がそのままTask化できる順序で記載する。
+
+### Restart Procedure
+
+次担当が最初に読む文書、取得するBranch、実行する確認を順番に記載する。
+
+---
+
+## 5. Current Handover
+
+Date: 2026-08-24  
+Session / Task ID: DOCS-FOUNDATION-001  
+Executor: Codex  
+Repository: `anghel-tomo/ai-game-studio`  
+Branch: `codex/aios-docs-revision`  
+Draft Pull Request: [#1](https://github.com/anghel-tomo/ai-game-studio/pull/1)  
+Base Branch: `main`  
+Status: READY_FOR_REVIEW / NOT MERGED
+
+### Goal
+
+最終目標として承認された文書構成 `00`～`12`、`91`～`93`、`99` を作成し、AI Game Studioの役割、Pipeline、承認境界、運用方法を整備する。
+
+### Completed
+
 - `00_AI_BOOTSTRAP.md`と`01_PROJECT_OVERVIEW.md`をVersion 2.0.0へ更新
 - 最終構成の`02`～`12`を新規作成
 - `91_AI_EXECUTION_PROTOCOL.md`を新規作成
@@ -85,9 +139,11 @@ Status:
 - GitHub上の必須17文書を再取得し、存在とMetadataを確認
 - READMEの相対Link 26件を検査し、Broken Link 0件を確認
 - 3者合議、Stable Diffusion、Human-Started Colab、Live2D未検証、Scenario方針の横断整合性を確認
+- Draft Pull Request [#1](https://github.com/anghel-tomo/ai-game-studio/pull/1)を作成
 
-### Confirmed Decisions
+### Decisions
 
+- D-001～D-013：`Docs/05_DECISION_LOG.md`を参照
 - 企画は3者合議、最大3ラウンド
 - 本番キャラクターイラストはStable Diffusion + ComfyUI
 - 有料Colabは人間がセッション開始
@@ -133,8 +189,8 @@ Status:
 
 ### Next Actions
 
-1. Independent Reviewer AI候補を決定する。
-2. 作業Branchの17文書とREADMEをReviewさせる。
+1. Independent Reviewer AIを決定する。
+2. Draft Pull Request #1の17文書とREADMEをReviewさせる。
 3. FindingをCritical / Major / Minor / Suggestionへ分類する。
 4. 必要な修正を同じBranchへ反映する。
 5. 人間が最終差分を確認する。
@@ -144,7 +200,7 @@ Status:
 
 1. `Docs/99_AI_CONTEXT.md`を読む。
 2. `Docs/00_AI_BOOTSTRAP.md`を読む。
-3. `codex/aios-docs-revision`の最新Commitを取得する。
+3. Draft Pull Request [#1](https://github.com/anghel-tomo/ai-game-studio/pull/1)を開く。
 4. `Docs/04_PROJECT_STATUS.md`と本書を確認する。
 5. Independent Reviewから再開する。
 
