@@ -1,6 +1,6 @@
 # AI Context
 
-Version: 1.0.0  
+Version: 1.0.1  
 Last Updated: 2026-08-24  
 Status: Active
 
@@ -20,13 +20,13 @@ Status: Active
 |---|---|
 | Project | AI Game Studio |
 | Stage | Stage 1: Governance Foundation |
-| Focus | 文書体系の再構築と最終Review |
+| Focus | Independent Reviewと人間の最終確認 |
 | Repository | `anghel-tomo/ai-game-studio` |
 | Default Branch | `main` |
 | Working Branch | `codex/aios-docs-revision` |
 | Working Branch Status | mainへ未マージ |
 | Implementation Status | 主要フォルダはプレースホルダー。Unity等は未実装 |
-| Next Decision | 文書Review、旧文書削除、mainへのマージ |
+| Next Decision | Reviewer Findingへの対応、旧文書削除、mainへのマージ |
 
 ---
 
@@ -122,7 +122,7 @@ Role別手順が必要な場合は `Docs/92_AI_PLAYBOOK.md` を読む。
 - `03_PROJECT_STATUS.md`
 - `04_SESSION_HANDOVER.md`
 
-Legacy Filesは新しい番号構成と競合する。削除は人間承認が必要なため、それまではDeprecated化し、新文書への参照だけを残す。
+Legacy Filesは3件ともDeprecated化済みで、新文書への参照だけを残している。削除は人間の明示的な承認後に行う。
 
 ---
 
@@ -162,11 +162,11 @@ Legacy Filesは新しい番号構成と競合する。削除は人間承認が�
 
 ## 8. Immediate Next Actions
 
-1. 新文書セットの整合性を確認する。
-2. Legacy FilesをDeprecated化する。
-3. READMEを最終構成とLICENSEへ整合させる。
-4. Independent Reviewer AIでReviewする。
-5. 人間が差分を確認する。
+1. Independent Reviewer AIで17文書とREADMEをReviewする。
+2. FindingをSeverity別に整理する。
+3. 必要な修正を作業Branchへ反映する。
+4. 人間が差分を最終確認する。
+5. 人間がLegacy Files削除の要否を判断する。
 6. 人間の明示承認後にmainへマージする。
 7. Stage 2の最初のTaskを決定する。
 
