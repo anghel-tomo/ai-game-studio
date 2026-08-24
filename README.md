@@ -1,243 +1,111 @@
 # AI Game Studio
 
-> AI-first Game Development Platform powered by **AIOS (AI Operating System)**
-
----
+> AIと人間が協調し、複数のゲームを継続制作するためのAI-first Game Development Platform
 
 ## Overview
 
-AI Game Studio is an experimental platform for building and operating games with AI-driven collaboration.
+AI Game Studioは、個人または少人数でも、AIを専門メンバーとして活用してゲームを企画・開発・検証・公開・運用できる再利用可能な制作基盤を構築するプロジェクトです。
 
-Rather than creating a single game, the goal is to establish an environment where multiple AI agents can continuously design, develop, test, and maintain multiple game projects.
+このリポジトリは単一ゲームのリポジトリではありません。AIOS、制作ルール、Unityテンプレート、画像・Live2D・シナリオPipeline、QA、長期記憶を共通基盤として整備します。
 
-This repository serves as the foundation of an AI-powered game development studio.
+人間が最終判断を行い、AIは承認された範囲で企画、設計、実装、デザイン、進行管理、制作、テスト、文書更新を担当します。
 
----
+## Start Here
 
-# Vision
+AIは次の順序で開始します。
 
-Create an AI Operating System that enables:
+1. [99_AI_CONTEXT.md](Docs/99_AI_CONTEXT.md)
+2. [00_AI_BOOTSTRAP.md](Docs/00_AI_BOOTSTRAP.md)
+3. [01_PROJECT_OVERVIEW.md](Docs/01_PROJECT_OVERVIEW.md)
+4. Current Taskに必要な責任文書
 
-- AI-assisted game planning
-- AI-driven implementation
-- AI-supported testing
-- AI-managed documentation
-- Continuous multi-project development
+現在の進捗は [04_PROJECT_STATUS.md](Docs/04_PROJECT_STATUS.md)、判断理由は [05_DECISION_LOG.md](Docs/05_DECISION_LOG.md)、再開情報は [12_SESSION_HANDOVER.md](Docs/12_SESSION_HANDOVER.md) を参照してください。
 
-The long-term objective is to allow AI agents to collaborate while humans provide strategic direction and final approval.
+## Core Principles
 
----
-
-# Core Principles
-
-- AI First
-- Human Approval
+- Human Final Authority
+- GitHub main as Single Source of Truth
 - Documentation First
-- GitHub as Single Source of Truth
+- Role-Based AI Assignment
+- Independent Review
 - Reuse Before Create
-- Automation First
-- Long-term Maintainability
+- Reproducibility
+- Small and Reversible Changes
+- Long-Term Maintainability
 
-These principles are defined in the AIOS Specification.
+## Project Scope
 
----
+- 企画：Main Planner + Reviewer 2名による3者合議
+- 開発：Unity、Firebase、WebGL-firstの検証
+- デザイン：UI・UX、画面、画像パーツ
+- 進行管理：Task、依存関係、Risk、引継ぎ
+- キャラクター：Stable Diffusion + ComfyUI + 有料Google Colab
+- Live2D：AIによるパーツ・parameter制作を目標
+- シナリオ：ラノベ系文章、会話、分岐、Unity用data
+- QA・Release：Independent Reviewと人間の最終承認
 
-# Technology Stack
+有料ColabのSessionは人間が開始し、稼働中にComfyUIとAIOSから操作します。GPT-Image-2とNano Banana Proは、本番キャラクターイラストの主系統として採用していません。
 
-## Game Engine
+## Technical Baseline
 
-- Unity Personal
-- WebGL
-- Steam
-- App Store
-- Google Play
+| Area | Current Direction |
+|---|---|
+| Game Engine | Unity 6 / Unity Personal |
+| Backend | Firebase |
+| Early Validation | WebGL |
+| Distribution | App Store / Google Play / Steam |
+| Version Control / SSOT | GitHub |
+| Character Image | Stable Diffusion + ComfyUI |
+| Image Compute | Paid Google Colab, human-started |
+| Character Animation | Live2D |
+| AI Operations | AIOS + Role-Based AI + Model Registry |
 
-## Backend
+詳細は [06_ARCHITECTURE.md](Docs/06_ARCHITECTURE.md) を参照してください。
 
-- Firebase
-- Firestore
-- Authentication
-- Storage
-- Hosting
+## Documentation
 
-## AI
+| File | Responsibility |
+|---|---|
+| [00_AI_BOOTSTRAP.md](Docs/00_AI_BOOTSTRAP.md) | 起動規約、読込順、権限境界 |
+| [01_PROJECT_OVERVIEW.md](Docs/01_PROJECT_OVERVIEW.md) | 目的、対象、成功条件 |
+| [02_AI_ROLES.md](Docs/02_AI_ROLES.md) | Role、能力要件、担当候補 |
+| [03_AI_RULES.md](Docs/03_AI_RULES.md) | 行動規則、禁止事項、承認条件 |
+| [04_PROJECT_STATUS.md](Docs/04_PROJECT_STATUS.md) | 現在の進捗、Risk、Next |
+| [05_DECISION_LOG.md](Docs/05_DECISION_LOG.md) | 重要判断と理由 |
+| [06_ARCHITECTURE.md](Docs/06_ARCHITECTURE.md) | AIOSと技術構成 |
+| [07_ASSET_PIPELINE.md](Docs/07_ASSET_PIPELINE.md) | UI、画像、Colab、Live2D |
+| [08_SCENARIO_PIPELINE.md](Docs/08_SCENARIO_PIPELINE.md) | シナリオ制作・実装工程 |
+| [09_QA_RELEASE_POLICY.md](Docs/09_QA_RELEASE_POLICY.md) | QAとRelease基準 |
+| [10_REPOSITORY_STRUCTURE.md](Docs/10_REPOSITORY_STRUCTURE.md) | 配置、命名、Version |
+| [11_PROJECT_MEMORY.md](Docs/11_PROJECT_MEMORY.md) | 長期的な知識と学習 |
+| [12_SESSION_HANDOVER.md](Docs/12_SESSION_HANDOVER.md) | Session引継ぎ |
+| [91_AI_EXECUTION_PROTOCOL.md](Docs/91_AI_EXECUTION_PROTOCOL.md) | AIOS実行Lifecycle |
+| [92_AI_PLAYBOOK.md](Docs/92_AI_PLAYBOOK.md) | Role別実践手順 |
+| [93_AI_TASK_PROTOCOL.md](Docs/93_AI_TASK_PROTOCOL.md) | 個別Taskの形式と完了条件 |
+| [99_AI_CONTEXT.md](Docs/99_AI_CONTEXT.md) | 現在地と参照Dashboard |
 
-- ChatGPT
-- Claude
-- Gemini
-- Antigravity
-- Future AI Agents
+## Repository Structure
 
-## Asset Pipeline
-
-- ComfyUI
-- SAM2
-- Live2D
-- Stitch
-
----
-
-# Repository Structure
-
-```
-Docs/
-Games/
-Templates/
-Workflows/
-Tools/
-Scripts/
-Assets/
-```
-
----
-
-# Documentation
-
-| File | Purpose |
-|------|---------|
-| AIOS_Specification.md | AI Operating System specification |
-| 00_AI_BOOTSTRAP.md | AI startup guide |
-| 01_PROJECT_OVERVIEW.md | Project vision |
-| 02_AI_RULES.md | AI operating rules |
-| 03_PROJECT_STATUS.md | Current project status |
-| 04_SESSION_HANDOVER.md | Session handover |
-| 05_DECISION_LOG.md | Architecture decisions |
-| 06_ARCHITECTURE.md | Technical architecture |
-| 07_AI_ROLES.md | AI responsibilities |
-| 08_PROJECT_MEMORY.md | Long-term knowledge |
-| 09_REPOSITORY_STRUCTURE.md | Repository structure |
-| 91_AI_EXECUTION_PROTOCOL.md | AI execution protocol |
-| 92_AI_PLAYBOOK.md | AI best practices |
-| 93_AI_TASK_PROTOCOL.md | AI task lifecycle |
-| 99_AI_CONTEXT.md | AI dashboard |
-
----
-
-# AI Workflow
-
-```
-Read AI Context
-        │
-        ▼
-Read Bootstrap
-        │
-        ▼
-Read Required Documents
-        │
-        ▼
-Plan
-        │
-        ▼
-Implement
-        │
-        ▼
-Review
-        │
-        ▼
-Update Documentation
-        │
-        ▼
-Complete
+```text
+Docs/       AIOS共通文書
+Games/      ゲーム別Project
+Templates/  ゲーム・文書・Task Template
+Workflows/  AIOS、CI、ComfyUI、Scenario workflow
+Tools/      Colab、Unity、Live2D、Model Registry
+Scripts/    Build、Validation、Conversion
+Assets/     複数ゲームで共有するAssetと権利情報
 ```
 
----
+詳細は [10_REPOSITORY_STRUCTURE.md](Docs/10_REPOSITORY_STRUCTURE.md) を参照してください。
 
-# Development Workflow
+## Current Status
 
-```
-Planning
-    ↓
-Architecture
-    ↓
-Implementation
-    ↓
-Testing
-    ↓
-Documentation
-    ↓
-Review
-    ↓
-Release
-```
+Stage 1: Governance Foundationです。
 
----
+文書体系はReview可能な状態です。Unity Template、Firebase、Colab + ComfyUI接続、Live2D自動化、Scenario変換、QA自動化は未実装または未検証です。
 
-# Current Status
+目標構成を実装済みと解釈しないでください。
 
-Current development focuses on establishing the AI Operating System before game production begins.
+## License
 
-Primary objectives include:
-
-- AIOS Specification
-- Documentation Framework
-- AI Collaboration Model
-- Unity Template
-- Firebase Template
-- Asset Pipeline
-- Continuous AI Workflow
-
----
-
-# Roadmap
-
-## Phase 0
-
-AIOS Foundation
-
-## Phase 1
-
-Repository Foundation
-
-## Phase 2
-
-Documentation System
-
-## Phase 3
-
-AI Environment
-
-## Phase 4
-
-Unity Environment
-
-## Phase 5
-
-Backend Environment
-
-## Phase 6
-
-Asset Pipeline
-
-## Phase 7
-
-Game Development
-
-## Phase 8
-
-Continuous Operation
-
----
-
-# Contributing
-
-The project is currently under active development.
-
-External contributions may be supported in future versions.
-
----
-
-# License
-
-This repository will be released under the MIT License.
-
----
-
-# Philosophy
-
-Documentation is permanent.
-
-Conversations are temporary.
-
-GitHub is the project's long-term memory.
-
-AIOS is the operating system that enables AI to continuously develop games.
+This repository is licensed under the [Apache License 2.0](LICENSE).
