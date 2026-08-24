@@ -1,6 +1,6 @@
 # AI Context
 
-Version: 1.0.1  
+Version: 1.0.2  
 Last Updated: 2026-08-24  
 Status: Active
 
@@ -25,6 +25,7 @@ Status: Active
 | Default Branch | `main` |
 | Working Branch | `codex/aios-docs-revision` |
 | Working Branch Status | mainへ未マージ |
+| Draft Pull Request | [#1](https://github.com/anghel-tomo/ai-game-studio/pull/1) |
 | Implementation Status | 主要フォルダはプレースホルダー。Unity等は未実装 |
 | Next Decision | Reviewer Findingへの対応、旧文書削除、mainへのマージ |
 
