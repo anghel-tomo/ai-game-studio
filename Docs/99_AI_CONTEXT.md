@@ -1,7 +1,7 @@
 # AI Context
 
-Version: 1.0.2  
-Last Updated: 2026-08-24  
+Version: 1.1.0  
+Last Updated: 2026-08-25  
 Status: Active
 
 ---
@@ -20,14 +20,14 @@ Status: Active
 |---|---|
 | Project | AI Game Studio |
 | Stage | Stage 1: Governance Foundation |
-| Focus | Independent Reviewと人間の最終確認 |
+| Focus | 修正後のFocused Independent Re-reviewと人間の最終確認 |
 | Repository | `anghel-tomo/ai-game-studio` |
 | Default Branch | `main` |
 | Working Branch | `codex/aios-docs-revision` |
 | Working Branch Status | mainへ未マージ |
 | Draft Pull Request | [#1](https://github.com/anghel-tomo/ai-game-studio/pull/1) |
 | Implementation Status | 主要フォルダはプレースホルダー。Unity等は未実装 |
-| Next Decision | Reviewer Findingへの対応、旧文書削除、mainへのマージ |
+| Next Decision | D-014・D-015、Review報告書の保存方針、旧文書削除、mainへのマージ |
 
 ---
 
@@ -129,7 +129,7 @@ Legacy Filesは3件ともDeprecated化済みで、新文書への参照だけを
 
 ## 7. Current Capability Status
 
-### Documented / Ready for Review
+### Documented / Review Finding Remediation Complete
 
 - Governance
 - AI Role Framework
@@ -163,18 +163,20 @@ Legacy Filesは3件ともDeprecated化済みで、新文書への参照だけを
 
 ## 8. Immediate Next Actions
 
-1. Independent Reviewer AIで17文書とREADMEをReviewする。
-2. FindingをSeverity別に整理する。
-3. 必要な修正を作業Branchへ反映する。
-4. 人間が差分を最終確認する。
-5. 人間がLegacy Files削除の要否を判断する。
-6. 人間の明示承認後にmainへマージする。
-7. Stage 2の最初のTaskを決定する。
+1. 修正対象文書をClaude FreeでFocused Independent Re-reviewする。
+2. 再Review Findingを作業Branchへ照合する。
+3. 人間がD-014・D-015と最終差分を確認する。
+4. 人間がReview報告書の保存方針とLegacy Files削除の要否を判断する。
+5. 人間の明示承認後にmainへマージする。
+6. Stage 2の最初のTaskを決定する。
 
 ---
 
 ## 9. Human Approval Pending
 
+- D-014のReview Finding採否
+- D-015の暫定OrchestratorとRelease Coordinator
+- Review報告書のRepository保存方針
 - Legacy Filesの削除
 - mainへのマージ
 - 有料Colabを用いた実装開始
@@ -192,6 +194,8 @@ Legacy Filesは3件ともDeprecated化済みで、新文書への参照だけを
 - Immediate Next Actions
 - Human Approval Pending
 - `04_PROJECT_STATUS.md`
+- `05_DECISION_LOG.md`：新しい重要判断がある場合
+- `11_PROJECT_MEMORY.md`：永続的な学習がある場合
 - `12_SESSION_HANDOVER.md`
 
 重要な判断は本書へ直接詳細を書かず、Decision Logを更新して参照する。
