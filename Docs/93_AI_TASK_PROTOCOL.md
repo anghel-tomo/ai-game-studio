@@ -1,7 +1,7 @@
 # AI Task Protocol
 
-Version: 1.0.0  
-Last Updated: 2026-08-24  
+Version: 1.1.0  
+Last Updated: 2026-08-25  
 Status: Active
 
 ---
@@ -19,12 +19,15 @@ Status: Active
 推奨形式：
 
 ```text
-<domain>-<number>
+<domain>[-<subdomain>]-<number>
 ```
+
+`subdomain` はTask群を分ける必要がある場合だけ使用する。
 
 例：
 
 - `DOCS-001`
+- `DOCS-FOUNDATION-001`
 - `PLAN-001`
 - `UNITY-001`
 - `ASSET-001`
@@ -108,6 +111,8 @@ Taskに含むものと含まないものを明記し、途中の無制限な拡�
 ---
 
 ## 5. Task States
+
+本節をAIOS全体の正規State定義とする。`Docs/91_AI_EXECUTION_PROTOCOL.md`、Task Packet、Execution Logは本節のState名を使用する。
 
 | State | Entry Condition | Exit Condition |
 |---|---|---|
