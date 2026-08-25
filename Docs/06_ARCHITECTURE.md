@@ -1,7 +1,7 @@
 # Architecture
 
-Version: 1.0.0  
-Last Updated: 2026-08-24  
+Version: 1.1.0  
+Last Updated: 2026-08-25  
 Status: Active
 
 ---
@@ -60,6 +60,10 @@ flowchart TD
 ---
 
 ## 4. AIOS Components
+
+### Pilot Operating Mode
+
+Antigravity 2.0によるAIOS全体運用がActiveとして検証されるまでは、Human Project Ownerが暫定Orchestratorとなり、以下のComponentを手動実行するか、TaskごとにProject Managerへ明示委任する。実行主体と委任範囲はTask Packetへ記録する。未検証の自動機能をAIOSが実行済みと報告してはならない。
 
 ### Task Router
 
@@ -204,27 +208,11 @@ Concept → Story Bible → Plot → Scene Outline → Draft → Review → Appr
 
 ### Asset Manifest
 
-- Asset ID
-- Source / Input
-- Tool / Model / Version
-- Workflow Version
-- Seed / Prompt / Parameters
-- License / Terms Check
-- Output Files
-- Human Approval
-- Related Game / Character
-- Last Updated
+正規SchemaとYAML Templateは `Docs/07_ASSET_PIPELINE.md` Section 8を正とする。最低限、Asset ID、Related Game / Character、Source / Input、Tool / Model / Version、Workflow Version、Seed、Prompt実体、Parameters、License / Terms Check、Output Files、Human Approval、Updated Atを保持する。別文書で独立したSchemaを再定義しない。
 
 ### Scenario Manifest
 
-- Scenario ID
-- Story Bible Version
-- Character Setting Version
-- Plot Version
-- Draft Version
-- Review Status
-- Human Approval
-- Unity Output Path
+正規SchemaとYAML Templateは `Docs/08_SCENARIO_PIPELINE.md` Section 7を正とする。最低限、Scenario ID、Story Bible Version、Character Setting Version、Plot Version、Draft Version、Review Status、Human Approval、Unity Output Pathを保持する。Scenario Data Contractとは別の成果物として管理する。
 
 ### Model Registry Entry
 
@@ -238,6 +226,9 @@ Concept → Story Bible → Plot → Scene Outline → Draft → Review → Appr
 - ローカル秘密情報は環境変数または承認されたSecret Storeを使う。
 - GitHub ActionsではGitHub Secretsを使う。
 - Colabではセッションまたは承認されたSecret機能を使い、Notebook出力へ値を残さない。
+- 人間はColabを開始した後、接続URLとTokenを承認済みの一時Secret Storeまたは環境変数経由で渡す。Chat、GitHub、Notebook出力、Task Packet、Execution Logへ秘密値を貼り付けない。
+- AIOSは秘密値そのものではなく、Session ID、接続可否、失効時刻、Secret Reference IDだけを記録する。承認済みの安全な受け渡し経路がない場合はBLOCKEDとし、公開・認証なしのTunnelを作成しない。
+- Session終了時は、人間がRuntimeまたはTunnelを停止し、Tokenを失効させる。AIOSは失効確認と成果物の永続保存結果だけを記録する。
 - ログ出力前に秘密情報をマスクする。
 - 権限は必要最小限にする。
 - 権限変更と新しい外部接続は人間承認を必要とする。
@@ -310,7 +301,7 @@ AIOSは処理開始時刻、対象、実行回数、成果物、停止理由を�
 - Unity CLI / MCP / Computer Use
 - Firebase環境とGitHub Actionsの接続
 - WebGL自動デプロイ
-- Colab上のComfyUI遠隔操作
+- Colab上のComfyUI遠隔操作、および一時Secret経由の接続・失効手順
 - Live2Dパーツ・パラメーター作成の自動化
 - シナリオからUnityデータへの自動変換
 - モデルレジストリの自動ルーティング
