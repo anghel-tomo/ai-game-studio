@@ -1,7 +1,7 @@
 # Asset Pipeline
 
-Version: 1.0.0  
-Last Updated: 2026-08-24  
+Version: 1.1.0  
+Last Updated: 2026-08-25  
 Status: Active Design / Implementation Pending
 
 ---
@@ -58,6 +58,9 @@ Status: Active Design / Implementation Pending
 - 禁止要素
 - 利用範囲と品質基準
 - Live2D利用の有無
+- 想定生成数と再試行上限
+- 概算費用または利用時間の上限
+- 停止条件
 
 不足情報をAIが重要設定として補完する場合は、PROPOSALとして人間へ確認する。
 
@@ -97,13 +100,17 @@ Character Illustratorは、入力を構造化したCharacter Sheetを作成す�
 
 ### Gate B: Colab Session Start
 
-人間が有料Google Colabのセッションを開始し、利用可能なGPUと作業範囲を確認する。
+人間が有料Google Colabのセッションを開始し、利用可能なGPU、作業範囲、費用または時間の上限を確認する。
+
+接続URLとTokenは `Docs/06_ARCHITECTURE.md` Section 9の一時Secret手順で渡す。秘密値をChat、GitHub、Notebook出力、Task Packet、Execution Logへ貼り付けない。承認済みの受け渡し経路がない場合はBLOCKEDとする。
 
 AIは開始済みと確認できるまでGPU処理を始めない。
 
 ### Stage 3: ComfyUI Execution
 
 AIOSまたはCharacter Illustratorが、承認済みworkflowをComfyUIで実行する。
+
+実行中のSession監視は、そのTaskのAssigned Role（通常はCharacter Illustrator、Live2D TaskではLive2D Pipeline Agent）が担当する。自動監視を利用できない場合は人間が監視し、切断または認証失効を検出した時点でTaskをBLOCKEDへ移行する。
 
 記録対象：
 
@@ -126,7 +133,8 @@ AIOSまたはCharacter Illustratorが、承認済みworkflowをComfyUIで実行�
 候補を比較し、採用候補へ次を行う。
 
 - 顔、手、衣装、小物の破綻確認
-- キャラクター同一性確認
+- キャラクター同一性確認。Character Sheetに対して、顔比率、輪郭、髪型・髪色、瞳色、固有の印、衣装Palette、主要Accessory、SilhouetteをChecklistで比較する
+- 不一致項目と人間の判定を記録する
 - Inpaint等による修正
 - 色、輪郭、透過、余白の確認
 - レイヤー化・パーツ化への適性確認
@@ -287,18 +295,40 @@ character_id:
 category:
 status: draft
 source_inputs: []
+tools:
+  - name:
+    version:
 workflow:
   file:
   version:
-models: []
+models:
+  - provider:
+    model:
+    version:
+    hash:
+    license:
 seed:
-prompt_reference:
-license:
+prompt:
+  positive: |
+  negative: |
+parameters: {}
+license_terms_check:
+  status: pending
+  checked_at:
+  references: []
+  notes:
 human_approval:
-outputs: []
+  status: pending
+  reviewer:
+  approved_at:
+outputs:
+  - path:
+    hash:
 created_at:
 updated_at:
 ```
+
+Promptは参照先だけで済ませず、再現に必要な実体をManifestまたはVersion管理されたPrompt Fileへ保存する。Prompt Fileを使う場合は `prompt.file`、`prompt.version`、`prompt.hash` を追加する。
 
 Promptへ秘密情報や個人情報を記載しない。
 
@@ -321,7 +351,7 @@ Promptへ秘密情報や個人情報を記載しない。
 ## 10. Colab Failure Recovery
 
 - 一時保存だけに依存しない。
-- workflow JSON、manifest、採用候補、ログを一定間隔で永続保存する。
+- workflow JSON、manifest、採用候補、ログは各Job完了時に永続保存する。10分を超えるJobは、可能な範囲で10分以内ごとにもCheckpointを保存する。Task Packetでより短い間隔を指定できる。
 - 長時間処理は小さなJobへ分ける。
 - 切断後に再利用できるseedと入力を残す。
 - 同じJobを無制限に自動再実行しない。
