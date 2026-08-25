@@ -1,7 +1,7 @@
 # Repository Structure
 
-Version: 1.0.0  
-Last Updated: 2026-08-24  
+Version: 1.1.0  
+Last Updated: 2026-08-25  
 Status: Active Design / Migration Pending
 
 ---
@@ -231,7 +231,9 @@ Games/cafe-story-01/
 - ID管理ファイル：英数字、`snake_case`
 - ComfyUI workflow：`<purpose>_v<major>.<minor>.<patch>.json`
 - Colab notebook：`<purpose>_v<major>.<minor>.<patch>.ipynb`
-- Manifest：`<asset-or-task-id>.yaml`
+- Asset / Task Manifest：`<asset-or-task-id>.yaml`
+- Scenario Manifest：`<scenario-id>_manifest.yaml`
+- Scenario Data：`<game-id>_<chapter-id>_<scene-id>.json`。複数Sceneを集約する場合はゲーム内READMEで分割単位を定義する
 - Unity asset：Unityの命名規則と既存プロジェクト規約を優先
 
 ### Directories
