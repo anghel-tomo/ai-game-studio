@@ -1,7 +1,7 @@
 # AI Execution Protocol
 
-Version: 1.0.0  
-Last Updated: 2026-08-24  
+Version: 2.0.0  
+Last Updated: 2026-08-25  
 Status: Active Design / Implementation Pending
 
 ---
@@ -16,21 +16,25 @@ Status: Active Design / Implementation Pending
 
 ## 2. Execution States
 
+Task状態の正規語彙とEntry / Exit Conditionは `Docs/93_AI_TASK_PROTOCOL.md` Section 5を正とする。本書も同じState名だけを使用する。
+
 ```mermaid
 stateDiagram-v2
     [*] --> RECEIVED
-    RECEIVED --> CONTEXT_READY
-    CONTEXT_READY --> PLANNING
+    RECEIVED --> NEEDS_CLARIFICATION
+    NEEDS_CLARIFICATION --> RECEIVED
+    RECEIVED --> READY
+    READY --> PLANNING
     PLANNING --> APPROVAL_WAIT
-    PLANNING --> EXECUTING
-    APPROVAL_WAIT --> EXECUTING
-    EXECUTING --> REVIEWING
-    REVIEWING --> REVISING
-    REVISING --> REVIEWING
-    REVIEWING --> COMPLETED
-    EXECUTING --> BLOCKED
-    REVIEWING --> BLOCKED
-    BLOCKED --> EXECUTING
+    PLANNING --> IN_PROGRESS
+    APPROVAL_WAIT --> IN_PROGRESS
+    IN_PROGRESS --> REVIEW
+    REVIEW --> REVISION
+    REVISION --> REVIEW
+    REVIEW --> COMPLETED
+    IN_PROGRESS --> BLOCKED
+    REVIEW --> BLOCKED
+    BLOCKED --> READY
     BLOCKED --> CANCELLED
 ```
 
@@ -39,17 +43,18 @@ stateDiagram-v2
 | State | Meaning |
 |---|---|
 | RECEIVED | 依頼を受領した |
-| CONTEXT_READY | 必要文書、状態、決定を確認した |
+| NEEDS_CLARIFICATION | 結果が大きく変わる不足情報の回答待ち |
+| READY | Context、Scope、Role、Riskを確認した |
 | PLANNING | Scope、手順、Role、Review、承認点を定義中 |
 | APPROVAL_WAIT | 人間承認なしに進められない |
-| EXECUTING | 承認済み範囲を実行中 |
-| REVIEWING | TestまたはIndependent Review中 |
-| REVISING | Review指摘を修正中 |
+| IN_PROGRESS | 承認済み範囲を実行中 |
+| REVIEW | TestまたはIndependent Review中 |
+| REVISION | Review指摘を修正中 |
 | BLOCKED | 権限、情報、環境、能力、費用で停止 |
-| COMPLETED | 完了条件と記録を満たした |
+| COMPLETED | 完了条件、記録、Handoverを満たした |
 | CANCELLED | 人間または正当な理由で中止 |
 
-Stateを飛ばしてCOMPLETEDにしない。
+Stateを飛ばしてCOMPLETEDにしない。Execution LogとTask Packetの `status` もこの語彙を使用する。
 
 ---
 
@@ -194,7 +199,7 @@ Candidate、Preview、Unvalidatedを利用する場合は明示する。
 - 失敗した操作を成功扱いにしない。
 - Userが途中で追加・変更した指示をScopeへ反映する。
 - 60秒以上かかる作業では進捗を共有する。
-- 外部サービス費とSession状態を監視する。
+- 外部サービス費とSession状態を監視する。Colab TaskではAssigned Roleを監視責任者とし、自動監視できない場合は人間へ明示委任する。
 
 ### Tool Operations
 
@@ -238,7 +243,9 @@ Decision: APPROVE | REVISE | BLOCK
 ## 11. Revision Loop
 
 - 指摘をFinding IDで管理する。
+- 各Findingを `FIXED`、`REJECTED_WITH_REASON`、`PENDING_HUMAN`、`DEFERRED` のいずれかで処理し、根拠を記録する。
 - 修正した内容と未対応理由を記録する。
+- Review終了後は同一Task内でProject StatusとSession Handoverを更新し、方針決定を伴う場合のみDecision Logも更新する。
 - Scope外の改善は別Taskへ分ける。
 - 同じ原因の失敗を2回繰り返した場合は方法を変更する。
 - Reviewと修正が循環する場合は、人間へ論点を提示する。
