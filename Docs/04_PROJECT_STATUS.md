@@ -1,7 +1,7 @@
 # Project Status
 
-Version: 1.0.2  
-Last Updated: 2026-08-24  
+Version: 1.1.0  
+Last Updated: 2026-08-25  
 Status: Active
 
 ---
@@ -11,13 +11,13 @@ Status: Active
 | Item | Current State |
 |---|---|
 | Project Stage | Stage 1: Governance Foundation |
-| Overall Status | Ready for Independent Review |
+| Overall Status | Independent Review Finding Remediation Complete / Human Review Pending |
 | Repository | `anghel-tomo/ai-game-studio` |
 | Default Branch | `main` |
-| Documentation Branch | `codex/aios-docs-revision` |
+| Working Branch | `codex/aios-docs-revision` |
 | Draft Pull Request | [#1](https://github.com/anghel-tomo/ai-game-studio/pull/1) |
-| Current Focus | Independent Reviewと人間の最終確認 |
-| Human Decision Required | mainへのマージ、旧文書の削除 |
+| Current Focus | 修正後の再Reviewと人間の最終確認 |
+| Human Decision Required | D-014・D-015の承認、Review報告書の保存方針、旧文書の削除、mainへのマージ |
 | Next Major Stage | Stage 2: Reusable Production Foundation |
 
 作業ブランチ上の内容は、mainへマージされるまで正式決定ではない。
@@ -38,23 +38,19 @@ Status: Active
 - ラノベ系Scenario Pipelineを文書化した。
 - GitHub上から全対象Fileを再取得し、必須17文書、Metadata、README Link、主要方針を検査した。
 - README内の相対Link 26件にBroken Linkがないことを確認した。
+- Claude Freeを独立Reviewerとして3回の分割Reviewを実施した。
+- Review Findingを既決定事項と作業Branchへ照合し、重複・誤認・時点差を分類した。
+- 有効なFindingに対して、読込順、Human Fallback、合議交代、Manifest、Colab Secret、Scenario、QA、State、Task IDを修正した。
 
 ---
 
 ## 3. In Progress
 
-- Independent Reviewer AIの選定
-- Independent Reviewer AIによる文書全体Review
-- 人間による最終確認
-- Review Findingがある場合の修正
+- 修正後文書のFocused Independent Re-review
+- 人間によるD-014・D-015と最終差分の確認
+- Review報告書をGitHubへ保存するかの判断
+- 旧番号文書3件の削除判断
 - mainへのマージ判断
-
-- Core Documents `02`～`06` の作成
-- Production Documents `07`～`12` の作成
-- Operational Documents `91`～`93`、`99` の作成
-- 旧番号文書と新番号文書の競合解消
-- READMEの文書一覧、ライセンス表記、現在状態の整合性確認
-- 文書間リンク、Version、用語、承認境界の統一
 
 ---
 
@@ -104,7 +100,7 @@ Not Startedの項目を実装済みとして扱ってはならない。
 | Previewモデルへの依存 | 突然の変更・停止 | Stableまたは別ProviderのFallbackを用意 |
 | 旧番号文書の残存 | AIが誤った文書を読む | 新文書を作成し、旧文書は明示的にDeprecated化 |
 | フォルダがプレースホルダーのみ | 実装済みと誤認 | StatusでNot Startedを明示 |
-| READMEとLICENSEの表記差 | 公開時の誤解 | LICENSEを正としてREADMEを修正予定 |
+| READMEとLICENSEの表記差 | 解消済み | Apache License 2.0へ一致確認 |
 | 外部サービス費の増加 | 継続運用に影響 | 人間承認と費用記録を必須化 |
 
 ---
@@ -125,12 +121,11 @@ Not Startedの項目を実装済みとして扱ってはならない。
 
 ## 8. Immediate Next Actions
 
-1. Independent Reviewer AIで文書全体をReviewする。
-2. FindingをSeverity別に整理する。
-3. 必要な修正を作業Branchへ反映する。
-4. 人間が最終差分を確認する。
-5. 人間が旧文書削除の要否とmainへのマージを判断する。
-6. 承認後、Stage 2の最初の実装Taskを決定する。
+1. 修正対象文書をFocused Independent Re-reviewする。
+2. 人間がD-014・D-015と最終差分を確認する。
+3. 人間がReview報告書の保存方針と旧文書削除の要否を判断する。
+4. 人間の明示承認後にmainへマージする。
+5. 承認後、Stage 2の最初の実装Taskを決定する。
 
 ---
 
