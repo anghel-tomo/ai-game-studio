@@ -1,7 +1,7 @@
 # Decision Log
 
-Version: 1.0.0  
-Last Updated: 2026-08-24  
+Version: 1.1.0  
+Last Updated: 2026-08-25  
 Status: Active
 
 ---
@@ -49,7 +49,7 @@ Status: Active
 - Decision: モデル名を恒久的な役割名にせず、Role、Capability、Status、Fallbackをモデルレジストリで管理する。
 - Reason: モデルとサービスの更新、価格、規約、可用性の変化へ対応するため。
 - Rejected Alternative: 特定モデルを全タスクの固定担当とする。
-- Consequence: Primary変更時は代表タスク評価とDecision Log更新が必要。
+- Consequence: Primary変更時は代表タスク評価、人間の明示承認、Decision Log更新が必要。
 
 ### D-004: 企画は3者合議とする
 
@@ -131,6 +131,27 @@ Status: Active
 - Decision: Majorを互換性のない規約変更、Minorを機能・責務追加、Patchを明確化・誤記修正に使用する。
 - Reason: AIが変更の重要度を判断しやすくするため。
 - Consequence: 内容変更時にVersionとLast Updatedを更新する。
+
+### D-014: 独立Review Findingの採否と修正方針
+
+- Date: 2026-08-25
+- Status: PROPOSED
+- Decision: 3回のClaude Free ReviewをFinding ID単位で照合し、実在する矛盾・欠落を修正する。重複、依頼文の誤記、Repositoryに存在しない前提に基づく指摘は理由付きで不採用とする。
+- Accepted Findings: R1-001～R1-011、R2-001～R2-010、R2-012、R3-005、R3-007。R3-001はStatus / Handover更新の時点差として是正するが、「Review→Fix運用が機能していない」という評価は採用しない。
+- Rejected Findings:
+  - R2-011 / H-4：人間の要件は「Main Planner 1名 + Reviewer 2名 = 合計3者」であり、全文書の3者合議と一致する。
+  - R3-006：Review報告書はClaudeへ添付した外部Fileであり、Repository Rootへ格納されているという前提が事実と異なる。
+  - R3-008：`99_DOCUMENT_MAP.md` はReview依頼文側の誤記であり、Repositoryの正規Fileは `99_AI_CONTEXT.md` である。
+- Reason: 独立Reviewを尊重しつつ、Reviewerの推測や時点差をSSOTへ誤反映しないため。
+- Consequence: 修正後にFocused Re-reviewを行い、人間が本Decisionと差分を承認するまでmainへマージしない。
+
+### D-015: Pilot期間のOrchestratorとRelease Coordinator
+
+- Date: 2026-08-25
+- Status: PROPOSED
+- Decision: AIOS OrchestratorがActiveとして検証されるまで、Human Project Ownerが暫定Orchestratorとなり、手動実行またはProject Managerへ明示委任する。Release Coordinatorの実行主体はProject Managerとし、検証済みAIOS Release WorkflowはAlternativeとする。
+- Reason: 未検証の自動Orchestratorを前提にせず、Task Router、Review、Release準備の責任主体を明確にするため。
+- Consequence: Task Packetへ実行主体と委任範囲を記録する。自動化への切替はCapability Validationと人間承認後に行う。
 
 ---
 
