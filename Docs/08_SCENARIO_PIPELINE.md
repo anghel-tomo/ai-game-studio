@@ -1,7 +1,7 @@
 # Scenario Pipeline
 
-Version: 1.0.0  
-Last Updated: 2026-08-24  
+Version: 1.1.0  
+Last Updated: 2026-08-25  
 Status: Active Design / Implementation Pending
 
 ---
@@ -214,6 +214,33 @@ ReviewerはApprove、Revise、Blockのいずれかと理由を返す。
 
 実際のschemaはゲームテンプレートで定義し、タイトルごとに無秩序に変更しない。
 
+### Scenario Manifest
+
+Scenario Data Contractとは別に、Scenario全体のVersion、Review、承認、Unity出力を次の正規Manifestで管理する。
+
+```yaml
+scenario_id:
+game_id:
+story_bible_version:
+character_setting_version:
+plot_version:
+draft_version:
+review:
+  status: pending
+  reviewers: []
+  reviewed_at:
+human_approval:
+  status: pending
+  reviewer:
+  approved_at:
+source_data_path:
+unity_output_path:
+created_at:
+updated_at:
+```
+
+正規配置は `Games/<game-id>/Scenario/<scenario-id>_manifest.yaml` とする。本文またはGame Dataを更新した場合は、対応するVersionとApproval状態を同時に更新する。
+
 ---
 
 ## 8. ID Rules
@@ -259,6 +286,7 @@ Scenario Writer候補は、同一のStory Bible、Outline、文字数、禁止�
 
 目標配置：
 
+- Scenario Manifest：`Games/<game-id>/Scenario/<scenario-id>_manifest.yaml`
 - Story Bible：`Games/<game-id>/Scenario/Bible/`
 - Plot：`Games/<game-id>/Scenario/Plot/`
 - Draft：`Games/<game-id>/Scenario/Drafts/`
