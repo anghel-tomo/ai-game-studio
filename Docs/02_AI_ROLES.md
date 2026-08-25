@@ -1,7 +1,7 @@
 # AI Roles
 
-Version: 1.0.0  
-Last Updated: 2026-08-24  
+Version: 2.0.0  
+Last Updated: 2026-08-25  
 Status: Active
 
 ---
@@ -46,23 +46,27 @@ AIは人間の最終責任を代替しない。
 
 現行候補は2026-08-24時点の暫定構成である。利用時にはモデルレジストリと公式情報を再確認する。
 
-| Role | Main Responsibility | Current Primary Candidate | Alternative | Status |
-|---|---|---|---|---|
-| AIOS Orchestrator | タスク分解、割当、実行監督、記録、引継ぎ | Google Antigravity 2.0 | Codex Work + GitHub | Pilot |
-| Producer / Main Planner | 企画統合、仕様整理、優先順位、意思決定案 | GPT-5.6 Sol | Claude Opus 5 | Active Candidate |
-| Planning Reviewer A | プレイヤー価値、独自性、UX、物語・キャラクター整合性 | Claude Opus 5 | Claude Fable 5 | Active Candidate |
-| Planning Reviewer B | 技術実現性、費用、工数、保守性、リスク | Gemini 3.1 Pro | GPT-5.6 Solの独立セッション | Preview Candidate |
-| Architect | システム設計、依存関係、拡張性、設計レビュー | Claude Opus 5 | GPT-5.6 Sol | Active Candidate |
-| Developer | コード、Git、テスト、リファクタリング | Codex / GPT-5.6 Sol | Antigravity Agent | Active Candidate |
-| Unity Operator | Unity編集、実行、ビルド、画面確認 | Antigravity 2.0 | Codex + Unity CLI/MCP | Capability Validation Required |
-| UI/UX Designer | 画面構成、導線、ワイヤー、UIパーツ | Stitch + reasoning model | Figma系ツール + GPT-5.6 | Pilot |
-| Project Manager | タスク、依存関係、進捗、リスク、引継ぎ | GPT-5.6 Terra | GPT-5.6 Sol | Active Candidate |
-| Researcher | 公式仕様、API、規約、比較調査 | Gemini Deep Research | GPT-5.6 Sol + web research | Active Candidate |
-| Character Illustrator | キャラクター本番画像、差分、再現可能な生成 | Stable Diffusion + ComfyUI | 個別評価した互換workflow | Pipeline Required |
-| Live2D Pipeline Agent | パーツ制作、パラメーター案・作成、データ準備 | ComfyUI/SAM系処理 + Cubism連携手段 | 人間による補正・手動作業 | Unvalidated |
-| Scenario Writer | ラノベ系プロット、本文、会話、分岐、推敲 | Claude Opus 5 | GPT-5.6 Sol | Evaluation Required |
-| QA Reviewer | 仕様適合、回帰、UX、文書・実装整合性 | 実装担当と異なる上位モデル | 人間レビュー | Required |
-| Release Coordinator | リリース候補整理、チェック、変更履歴 | AIOS Orchestrator | Project Manager | Human Approval Required |
+| Role | Main Responsibility | Current Primary Candidate | Alternative | Human Fallback | Status |
+|---|---|---|---|---|---|
+| AIOS Orchestrator | タスク分解、割当、実行監督、記録、引継ぎ | Google Antigravity 2.0 | Codex Work + GitHub | Human Project Ownerが手動でOrchestrator手順を実行または委任 | Pilot |
+| Producer / Main Planner | 企画統合、仕様整理、優先順位、意思決定案 | GPT-5.6 Sol | Claude Opus 5 | Human Project Owner | Active Candidate |
+| Planning Reviewer A | プレイヤー価値、独自性、UX、物語・キャラクター整合性 | Claude Opus 5 | Claude Fable 5 | Human Project Ownerが独立したCreative Reviewerを指名。確保できなければ停止 | Active Candidate |
+| Planning Reviewer B | 技術実現性、費用、工数、保守性、リスク | Gemini 3.1 Pro | 人間が指名した独立Feasibility Reviewer | Human Project Ownerが独立した技術・制作Reviewerを指名。確保できなければ停止 | Preview Candidate |
+| Architect | システム設計、依存関係、拡張性、設計レビュー | Claude Opus 5 | GPT-5.6 Sol | 人間のTechnical Leadまたは外部専門家 | Active Candidate |
+| Developer | コード、Git、テスト、リファクタリング | Codex / GPT-5.6 Sol | Antigravity Agent | 人間のDeveloper | Active Candidate |
+| Unity Operator | Unity編集、実行、ビルド、画面確認 | Antigravity 2.0 | Codex + Unity CLI/MCP | 人間のUnity Operator | Capability Validation Required |
+| UI/UX Designer | 画面構成、導線、ワイヤー、UIパーツ | Stitch + reasoning model | Figma系ツール + GPT-5.6 | 人間のUI/UX Designer | Pilot |
+| Project Manager | タスク、依存関係、進捗、リスク、引継ぎ | GPT-5.6 Terra | GPT-5.6 Sol | Human Project Owner | Active Candidate |
+| Researcher | 公式仕様、API、規約、比較調査 | Gemini Deep Research | GPT-5.6 Sol + web research | 人間が公式情報を確認 | Active Candidate |
+| Character Illustrator | キャラクター本番画像、差分、再現可能な生成 | Stable Diffusion + ComfyUI | 個別評価した互換workflow | 人間のIllustrator / Art Director | Pipeline Required |
+| Live2D Pipeline Agent | パーツ制作、パラメーター案・作成、データ準備 | ComfyUI/SAM系処理 + Cubism連携手段 | 人間による補正・手動作業 | 人間のLive2D Modeler | Unvalidated |
+| Scenario Writer | ラノベ系プロット、本文、会話、分岐、推敲 | Claude Opus 5 | GPT-5.6 Sol | 人間のScenario Writer / Editor | Evaluation Required |
+| QA Reviewer | 仕様適合、回帰、UX、文書・実装整合性 | 実装担当と異なる上位モデル | 人間レビュー | Human Project Ownerが独立QA担当を指名 | Required |
+| Release Coordinator | リリース候補整理、チェック、変更履歴 | Project Manager | 検証済みAIOS Release Workflow | Human Project Owner | Human Approval Required |
+
+Human Fallbackは自動的な権限移譲ではない。PrimaryとAlternativeが利用不能、未検証または独立性を満たさない場合、TaskをBLOCKEDにし、Human Project Ownerが担当者を明示する。必要な専門性を持つ人間を確保できない場合は作業を停止する。
+
+AIOS OrchestratorがPilotの間は、Human Project OwnerがOrchestrator機能を手動実行またはProject Managerへ明示委任する。Release CoordinatorはProject Managerを実行主体とし、自動化検証後のみAIOS Release Workflowへ切り替える。
 
 モデル名は役割名ではない。Current Primary Candidateは、評価時点の候補を示すだけであり、恒久的な採用を意味しない。
 
@@ -95,6 +99,8 @@ AIは人間の最終責任を代替しない。
 
 3者が同一案を承認した場合のみ合意とする。最大3ラウンドで合意できない場合は、論点と選択肢を整理し、人間へ判断を求める。
 
+参加AIの切替は人間承認を必要とする。合議中に交代する場合、完了済みRoundと既存Findingを保持し、未完了Roundを同じRound番号で再実行する。Round数をリセットせず、独立性を維持できなければ人間へエスカレーションする。詳細は `Docs/00_AI_BOOTSTRAP.md` Section 7に従う。
+
 ---
 
 ## 6. Development Roles
@@ -119,7 +125,7 @@ Developerは承認された仕様と設計に基づき、コード、テスト�
 
 Unity Operatorは、Unityプロジェクトを実際に開き、編集、実行、ビルド、画面確認を行える環境を必要とする。
 
-CLI、MCP、Computer Useなどの操作経路は、代表タスクで検証してからActiveへ変更する。接続できない場合は、実行したと報告せず、人間操作用の手順と確認項目を出力する。
+CLI、MCP、Computer Useなどの操作経路は、代表タスクで検証してからActiveへ変更する。接続できない場合は、実行したと報告せず、人間操作用の手順と確認項目を出力する。現在の未検証範囲は `Docs/06_ARCHITECTURE.md` Section 14を正とする。
 
 ---
 
@@ -196,7 +202,7 @@ QA Reviewerは、可能な限り成果物の作成者と異なるモデル系統
 | Fallback | 利用不能時の代替 |
 | Last Verified | 最終確認日 |
 
-Primaryを変更する場合は、評価結果と変更理由をDecision Logへ記録する。
+Primaryを変更する場合は、事前に人間の明示承認を受け、評価結果と変更理由をDecision Logへ記録する。Planning CouncilのPrimary変更または合議中の担当交代は、独立性への影響も記録する。
 
 ---
 
@@ -211,6 +217,7 @@ CandidateをActiveへ変更する前に、少なくとも次を確認する。
 5. 権利、利用規約、データ取扱いを確認している。
 6. 別担当が成果物をレビューしている。
 7. 失敗時のFallbackが用意されている。
+8. 認証情報を必要とする接続では、秘密値をChat、GitHub、Notebook出力、Task Packet、Execution Logへ残さない受け渡し・失効手順を検証している。
 
 ---
 
