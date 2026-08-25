@@ -1,7 +1,7 @@
 # QA and Release Policy
 
-Version: 1.0.0  
-Last Updated: 2026-08-24  
+Version: 1.1.0  
+Last Updated: 2026-08-25  
 Status: Active Design / Implementation Pending
 
 ---
@@ -62,6 +62,8 @@ Severityを下げる場合は、理由と影響範囲を記録する。
 - Markdown、JSON、YAML、CSV等の構文
 - 命名、ID、参照先
 - 未使用ファイル、重複、リンク切れ
+- Completed / In Progress / Not Started間の自己矛盾
+- Canonical SchemaとTemplate例のField不一致
 - Secretsや個人情報の混入
 - ライセンス情報
 
@@ -152,7 +154,8 @@ Severityを下げる場合は、理由と影響範囲を記録する。
 
 ### Character and Assets
 
-- Character同一性
+- Character同一性。Character Sheetに対して顔比率、輪郭、髪型・髪色、瞳色、固有の印、衣装Palette、主要Accessory、Silhouetteを確認
+- Checklistの不一致項目、人間判定、修正結果
 - 破綻、透過、色、解像度
 - 生成条件の再現性
 - Rights / License
