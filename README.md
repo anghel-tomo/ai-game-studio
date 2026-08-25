@@ -12,12 +12,9 @@ AI Game Studioは、個人または少人数でも、AIを専門メンバーと�
 
 ## Start Here
 
-AIは次の順序で開始します。
+最初に [99_AI_CONTEXT.md](Docs/99_AI_CONTEXT.md) を開き、同書Section 3「Required Start Order」を正規の読込順として使用します。
 
-1. [99_AI_CONTEXT.md](Docs/99_AI_CONTEXT.md)
-2. [00_AI_BOOTSTRAP.md](Docs/00_AI_BOOTSTRAP.md)
-3. [01_PROJECT_OVERVIEW.md](Docs/01_PROJECT_OVERVIEW.md)
-4. Current Taskに必要な責任文書
+READMEの役割は入口の案内であり、必須文書の一覧を置き換えるものではありません。次に [00_AI_BOOTSTRAP.md](Docs/00_AI_BOOTSTRAP.md) を読み、99で指定された共通文書、現在Taskに必要なDomain文書、実行Protocolを確認してから作業を開始してください。
 
 現在の進捗は [04_PROJECT_STATUS.md](Docs/04_PROJECT_STATUS.md)、判断理由は [05_DECISION_LOG.md](Docs/05_DECISION_LOG.md)、再開情報は [12_SESSION_HANDOVER.md](Docs/12_SESSION_HANDOVER.md) を参照してください。
 
