@@ -1,7 +1,7 @@
 # AI Roles
 
-Version: 2.0.0  
-Last Updated: 2026-08-25  
+Version: 2.0.1  
+Last Updated: 2026-08-26  
 Status: Active
 
 ---
@@ -44,7 +44,7 @@ AIは人間の最終責任を代替しない。
 
 ## 4. Current Role Map
 
-現行候補は2026-08-24時点の暫定構成である。利用時にはモデルレジストリと公式情報を再確認する。
+現行候補は暫定構成であり、このRole Mapは2026-08-26に改訂した。各Candidateの利用時にはモデルレジストリのTerms Last Verifiedと公式情報、実環境での利用可否を再確認する。
 
 | Role | Main Responsibility | Current Primary Candidate | Alternative | Human Fallback | Status |
 |---|---|---|---|---|---|
