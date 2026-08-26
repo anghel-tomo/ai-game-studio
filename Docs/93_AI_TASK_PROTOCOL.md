@@ -1,7 +1,7 @@
 # AI Task Protocol
 
-Version: 1.1.0  
-Last Updated: 2026-08-25  
+Version: 1.1.1  
+Last Updated: 2026-08-26  
 Status: Active
 
 ---
@@ -9,6 +9,8 @@ Status: Active
 ## 1. Purpose
 
 本書は、AIOSが個別タスクを受付、実行、検証、完了、引継ぎするためのTask Packet、状態、Risk、成果物、完了条件を定義する。
+
+AIOS OrchestratorはPilotである。Task Packetを単体で再開する場合も、Pilot期間の実行主体と委任条件は `Docs/02_AI_ROLES.md` Section 4および `Docs/06_ARCHITECTURE.md` Section 4を確認し、Human Project Ownerまたはその明示委任先を実行主体として記録する。
 
 ---
 
