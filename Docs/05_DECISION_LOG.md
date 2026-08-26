@@ -1,6 +1,6 @@
 # Decision Log
 
-Version: 1.2.0  
+Version: 1.3.0  
 Last Updated: 2026-08-26  
 Status: Active
 
@@ -165,6 +165,7 @@ Status: Active
   - マージ後、Deprecated化済みの`Docs/02_AI_RULES.md`、`Docs/03_PROJECT_STATUS.md`、`Docs/04_SESSION_HANDOVER.md`を確認し、別のCleanup Pull Requestで削除して`main`へマージする。
 - Reason: Review結果の要点をSSOTへ残しつつ、外部添付の重複保存を避け、旧番号文書による誤読リスクを解消するため。
 - Consequence: 正規文書は新しい17文書へ一本化される。Cleanup完了まで旧文書はDeprecatedとして扱う。
+- Implementation: Pull Request #1を2026-08-26にSquash Mergeし、Legacy Files 3件をPull Request #2で削除した。
 - Human Approval: 2026-08-26、Human Project Ownerが承認。
 - Related Files: `Docs/04_PROJECT_STATUS.md`、`Docs/12_SESSION_HANDOVER.md`、`Docs/99_AI_CONTEXT.md`、Pull Request #1
 
