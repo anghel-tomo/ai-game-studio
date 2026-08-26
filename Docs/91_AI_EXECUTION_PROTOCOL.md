@@ -1,7 +1,7 @@
 # AI Execution Protocol
 
-Version: 2.0.0  
-Last Updated: 2026-08-25  
+Version: 2.0.1  
+Last Updated: 2026-08-26  
 Status: Active Design / Implementation Pending
 
 ---
@@ -11,6 +11,8 @@ Status: Active Design / Implementation Pending
 本書は、AIOSが依頼を受け、Contextを読み、Roleを割り当て、実行、Review、記録、引継ぎまで管理する標準手順を定義する。
 
 個別タスクの入力形式と完了条件は `Docs/93_AI_TASK_PROTOCOL.md`、役割別の実践手順は `Docs/92_AI_PLAYBOOK.md` を参照する。
+
+AIOS OrchestratorはPilotである。Pilot期間の実行主体と委任条件は `Docs/02_AI_ROLES.md` Section 4および `Docs/06_ARCHITECTURE.md` Section 4を参照し、Human Project Ownerまたはその明示委任先が本書のComponentを手動代行する。検証されていない自動Componentの存在や稼働を前提にしない。
 
 ---
 
