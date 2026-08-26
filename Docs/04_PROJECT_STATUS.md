@@ -1,6 +1,6 @@
 # Project Status
 
-Version: 1.3.0  
+Version: 1.4.0  
 Last Updated: 2026-08-26  
 Status: Active
 
@@ -10,17 +10,17 @@ Status: Active
 
 | Item | Current State |
 |---|---|
-| Project Stage | Stage 1: Governance Foundation |
-| Overall Status | Human Approval Complete / Merge and Legacy Cleanup Authorized |
+| Project Stage | Stage 1 Complete / Stage 2 Ready |
+| Overall Status | Documentation Foundation Complete / main Current |
 | Repository | `anghel-tomo/ai-game-studio` |
 | Default Branch | `main` |
-| Working Branch | `codex/aios-docs-revision` |
-| Draft Pull Request | [#1](https://github.com/anghel-tomo/ai-game-studio/pull/1) |
-| Current Focus | Pull Request #1のマージとLegacy FilesのCleanup |
+| Working Branch | None（承認済み最新状態は`main`） |
+| Merged Pull Requests | [#1](https://github.com/anghel-tomo/ai-game-studio/pull/1)、[#2](https://github.com/anghel-tomo/ai-game-studio/pull/2) |
+| Current Focus | Stage 2の最初の実装Task選定 |
 | Human Decision Required | 現在の文書Taskにはなし。D-014～D-016承認済み |
 | Next Major Stage | Stage 2: Reusable Production Foundation |
 
-作業ブランチ上の内容は、mainへマージされるまで正式決定ではない。
+承認済みの最新文書は`main`を正とする。
 
 ---
 
@@ -31,7 +31,7 @@ Status: Active
 - 最終構成のCore Documents `00`～`12` を作成した。
 - Operational Documents `91`～`93` と `99_AI_CONTEXT.md` を作成した。
 - READMEを新文書構成とApache License 2.0へ整合させた。
-- 旧番号文書3件を削除せずDeprecated化した。
+- 旧番号文書3件を一度Deprecated化し、人間承認後にPull Request #2で削除した。
 - 企画の3者合議、最大3ラウンド、人間エスカレーションを文書化した。
 - Stable Diffusion + ComfyUI + Human-Started Colabを文書化した。
 - AIによるLive2Dパーツ・パラメーター作成の目標と未検証範囲を文書化した。
@@ -46,13 +46,14 @@ Status: Active
 - R4修正箇所をGitHubから再取得し、15項目の機械確認がすべてPassした。
 - 人間がD-014・D-015を承認した。
 - 人間がReview原文を保存しない方針、Pull Request #1のマージ、マージ後のLegacy Files削除をD-016として承認した。
+- Pull Request #1をSquash Mergeし、AIOS文書基盤を`main`へ反映した。
+- Deprecated化済みLegacy Files 3件を確認し、Pull Request #2で削除した。
 
 ---
 
 ## 3. In Progress
 
-- Pull Request #1の`main`へのマージ
-- マージ後の別Pull RequestによるLegacy Files 3件の削除と検証
+- なし（Stage 2開始待ち）
 
 ---
 
@@ -102,7 +103,7 @@ Not Startedの項目を実装済みとして扱ってはならない。
 | Colabセッション切断 | 作業・成果物の消失 | checkpoint、workflow、ログを外部保存 |
 | AIモデルと規約の変化 | 役割割当の陳腐化 | モデルレジストリとLast Verifiedを管理 |
 | Previewモデルへの依存 | 突然の変更・停止 | Stableまたは別ProviderのFallbackを用意 |
-| 旧番号文書の残存 | AIが誤った文書を読む | 新文書を作成し、旧文書は明示的にDeprecated化 |
+| 旧番号文書の誤読 | 解消済み | 人間承認後にLegacy Files 3件を削除 |
 | フォルダがプレースホルダーのみ | 実装済みと誤認 | StatusでNot Startedを明示 |
 | READMEとLICENSEの表記差 | 解消済み | Apache License 2.0へ一致確認 |
 | 外部サービス費の増加 | 継続運用に影響 | 人間承認と費用記録を必須化 |
@@ -125,10 +126,9 @@ Not Startedの項目を実装済みとして扱ってはならない。
 
 ## 8. Immediate Next Actions
 
-1. Pull Request #1を`main`へマージする。
-2. `main`上のLegacy Filesと参照を確認する。
-3. 別のCleanup Pull RequestでLegacy Files 3件を削除し、検証後に`main`へマージする。
-4. Stage 2の最初の実装Taskを決定する。
+1. Stage 2の最初の実装Taskを決定する。
+2. モデルレジストリまたはUnity Templateのどちらから開始するか人間が選ぶ。
+3. 選定したTaskのTask Packetと検証計画を作成する。
 
 ---
 
