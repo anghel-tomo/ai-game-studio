@@ -1,7 +1,7 @@
 # Project Status
 
-Version: 1.1.0  
-Last Updated: 2026-08-25  
+Version: 1.2.0  
+Last Updated: 2026-08-26  
 Status: Active
 
 ---
@@ -11,12 +11,12 @@ Status: Active
 | Item | Current State |
 |---|---|
 | Project Stage | Stage 1: Governance Foundation |
-| Overall Status | Independent Review Finding Remediation Complete / Human Review Pending |
+| Overall Status | Focused Independent Re-review Complete / Human Final Confirmation Pending |
 | Repository | `anghel-tomo/ai-game-studio` |
 | Default Branch | `main` |
 | Working Branch | `codex/aios-docs-revision` |
 | Draft Pull Request | [#1](https://github.com/anghel-tomo/ai-game-studio/pull/1) |
-| Current Focus | 修正後の再Reviewと人間の最終確認 |
+| Current Focus | D-014・D-015と最終差分の人間確認 |
 | Human Decision Required | D-014・D-015の承認、Review報告書の保存方針、旧文書の削除、mainへのマージ |
 | Next Major Stage | Stage 2: Reusable Production Foundation |
 
@@ -38,15 +38,17 @@ Status: Active
 - ラノベ系Scenario Pipelineを文書化した。
 - GitHub上から全対象Fileを再取得し、必須17文書、Metadata、README Link、主要方針を検査した。
 - README内の相対Link 26件にBroken Linkがないことを確認した。
-- Claude Freeを独立Reviewerとして3回の分割Reviewを実施した。
+- Claude Freeを独立Reviewerとして3回の分割Reviewと、修正後1回のFocused Independent Re-reviewを実施した。
 - Review Findingを既決定事項と作業Branchへ照合し、重複・誤認・時点差を分類した。
 - 有効なFindingに対して、読込順、Human Fallback、合議交代、Manifest、Colab Secret、Scenario、QA、State、Task IDを修正した。
+- `REVIEW_04`で新規Critical / Majorが0件、新規MinorがR4-001～R4-003の3件であることを確認した。
+- R4-001～R4-003を反映し、Pilot前提の相互参照、Asset Manifest配置、Role Map改訂日の曖昧さを解消した。
+- R4修正箇所をGitHubから再取得し、15項目の機械確認がすべてPassした。
 
 ---
 
 ## 3. In Progress
 
-- 修正後文書のFocused Independent Re-review
 - 人間によるD-014・D-015と最終差分の確認
 - Review報告書をGitHubへ保存するかの判断
 - 旧番号文書3件の削除判断
@@ -121,11 +123,10 @@ Not Startedの項目を実装済みとして扱ってはならない。
 
 ## 8. Immediate Next Actions
 
-1. 修正対象文書をFocused Independent Re-reviewする。
-2. 人間がD-014・D-015と最終差分を確認する。
-3. 人間がReview報告書の保存方針と旧文書削除の要否を判断する。
-4. 人間の明示承認後にmainへマージする。
-5. 承認後、Stage 2の最初の実装Taskを決定する。
+1. 人間がD-014・D-015と最終差分を確認する。
+2. 人間がReview報告書の保存方針と旧文書削除の要否を判断する。
+3. 人間の明示承認後にmainへマージする。
+4. 承認後、Stage 2の最初の実装Taskを決定する。
 
 ---
 
