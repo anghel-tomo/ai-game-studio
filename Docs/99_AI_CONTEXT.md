@@ -1,6 +1,6 @@
 # AI Context
 
-Version: 1.2.0  
+Version: 1.3.0  
 Last Updated: 2026-08-26  
 Status: Active
 
@@ -20,14 +20,14 @@ Status: Active
 |---|---|
 | Project | AI Game Studio |
 | Stage | Stage 1: Governance Foundation |
-| Focus | Focused Independent Re-review完了後の人間最終確認 |
+| Focus | Pull Request #1のマージとLegacy FilesのCleanup |
 | Repository | `anghel-tomo/ai-game-studio` |
 | Default Branch | `main` |
 | Working Branch | `codex/aios-docs-revision` |
 | Working Branch Status | mainへ未マージ |
 | Draft Pull Request | [#1](https://github.com/anghel-tomo/ai-game-studio/pull/1) |
 | Implementation Status | 主要フォルダはプレースホルダー。Unity等は未実装 |
-| Next Decision | D-014・D-015、Review報告書の保存方針、旧文書削除、mainへのマージ |
+| Next Decision | Stage 2の最初の実装Task |
 
 ---
 
@@ -68,6 +68,9 @@ Role別手順が必要な場合は `Docs/92_AI_PLAYBOOK.md` を読む。
 - シナリオを独立Pipelineとし、ラノベ系文章に適したAIを比較評価する。
 - Unity 6、Firebase、WebGL-firstを基本技術方針とする。
 - 破壊的操作とmainへのマージは人間承認を必要とする。
+- D-014のReview Finding採否とD-015のPilot運用体制は承認済みである。
+- Review原文はRepositoryへ保存せず、D-014とPull Request要約を正規記録とする。
+- Pull Request #1のマージと、その後のLegacy Files 3件の削除はD-016で承認済みである。
 
 詳細は `Docs/05_DECISION_LOG.md` を参照する。
 
@@ -123,7 +126,7 @@ Role別手順が必要な場合は `Docs/92_AI_PLAYBOOK.md` を読む。
 - `03_PROJECT_STATUS.md`
 - `04_SESSION_HANDOVER.md`
 
-Legacy Filesは3件ともDeprecated化済みで、新文書への参照だけを残している。削除は人間の明示的な承認後に行う。
+Legacy Filesは3件ともDeprecated化済みで、新文書への参照だけを残している。D-016により、Pull Request #1のマージ後に別のCleanup Pull Requestで削除することが承認済みである。
 
 ---
 
@@ -163,20 +166,17 @@ Legacy Filesは3件ともDeprecated化済みで、新文書への参照だけを
 
 ## 8. Immediate Next Actions
 
-1. 人間がD-014・D-015と最終差分を確認する。
-2. 人間がReview報告書の保存方針とLegacy Files削除の要否を判断する。
-3. 人間の明示承認後にmainへマージする。
+1. Pull Request #1を`main`へマージする。
+2. `main`上のLegacy Filesと参照を確認する。
+3. 別のCleanup Pull RequestでLegacy Files 3件を削除し、検証後に`main`へマージする。
 4. Stage 2の最初のTaskを決定する。
 
 ---
 
 ## 9. Human Approval Pending
 
-- D-014のReview Finding採否
-- D-015の暫定OrchestratorとRelease Coordinator
-- Review報告書のRepository保存方針
-- Legacy Filesの削除
-- mainへのマージ
+現在の文書Taskに必要な承認は取得済み。以下の将来操作は別途承認を必要とする。
+
 - 有料Colabを用いた実装開始
 - Unity、Firebase、Live2D等の外部接続・設定
 - Public Deploy / Release
