@@ -1,6 +1,6 @@
 # Session Handover
 
-Version: 1.2.0  
+Version: 1.3.0  
 Last Updated: 2026-08-26  
 Status: Active
 
@@ -114,17 +114,17 @@ Fileごとに変更目的を1行で記載する。CommitまたはPull Requestへ
 ## 5. Current Handover
 
 Date: 2026-08-26  
-Session / Task ID: DOCS-FOUNDATION-003  
+Session / Task ID: DOCS-FOUNDATION-004  
 Executor: Codex  
 Repository: `anghel-tomo/ai-game-studio`  
 Working Branch: `codex/aios-docs-revision`  
 Draft Pull Request: [#1](https://github.com/anghel-tomo/ai-game-studio/pull/1)  
 Base Branch: `main`  
-Status: FOCUSED_REVIEW_COMPLETE / HUMAN_FINAL_CONFIRMATION_PENDING / NOT_MERGED
+Status: HUMAN_APPROVED / MERGE_AND_CLEANUP_AUTHORIZED / NOT_MERGED
 
 ### Goal
 
-`REVIEW_04`のFocused Independent Re-reviewを検証し、有効なMinor Findingを作業Branchへ反映したうえで、人間が最終判断できる状態にする。
+人間の最終承認をDecision Logへ記録し、Pull Request #1を`main`へマージした後、Legacy Filesを別のCleanup Pull Requestで削除する。
 
 ### Completed
 
@@ -142,12 +142,15 @@ Status: FOCUSED_REVIEW_COMPLETE / HUMAN_FINAL_CONFIRMATION_PENDING / NOT_MERGED
 - `REVIEW_04`で既存24件がFIXEDまたはPARTIALLY_FIXED、新規Critical / Majorが0件、新規Minorが3件と確認
 - R4-001～R4-003を反映し、R1-005の残課題を含む3件を解消
 - 修正箇所をGitHubから再取得し、15 / 15項目の機械確認がPass
+- D-014・D-015を人間承認済みとして記録
+- Review原文の非保存、Pull Request #1のマージ、Legacy Files削除をD-016として記録
 
 ### Decisions
 
 - D-001～D-013：既存の承認済みDecision
-- D-014：Review Finding採否と修正方針、PROPOSED
-- D-015：Pilot期間の暫定OrchestratorとRelease Coordinator、PROPOSED
+- D-014：Review Finding採否と修正方針、ACCEPTED
+- D-015：Pilot期間の暫定OrchestratorとRelease Coordinator、ACCEPTED
+- D-016：Review記録、Legacy Files削除、main統合方針、ACCEPTED
 
 ### Tests / Reviews
 
@@ -161,34 +164,29 @@ Status: FOCUSED_REVIEW_COMPLETE / HUMAN_FINAL_CONFIRMATION_PENDING / NOT_MERGED
 
 ### Not Completed
 
-- 人間によるD-014・D-015と最終差分の承認
-- Review報告書をGitHubへ保存するかの判断
-- 旧番号文書の削除判断
-- mainへのマージ
+- Pull Request #1の`main`へのマージ
+- Legacy Files 3件の削除とCleanup Pull Requestのマージ
 - Stage 2以降の実装
 
 ### Blockers and Risks
 
 文書修正にBlockerはない。
 
-実装面では、Colab/ComfyUI接続、Unity操作、Live2D自動化、モデル評価が未検証である。D-014・D-015は人間承認前の提案であり、mainへ未反映である。
+実装面では、Colab/ComfyUI接続、Unity操作、Live2D自動化、モデル評価が未検証である。D-014～D-016は人間承認済みだが、現在はまだ`main`へ未反映である。
 
 ### Human Approval Required
 
-- D-014のReview Finding採否
-- D-015の暫定OrchestratorとRelease Coordinator
-- Review報告書のRepository保存方針
-- 旧番号文書3件の削除
-- mainへのマージ
+現在の文書Taskに必要な承認は取得済み。以下の将来操作は別途承認を必要とする。
+
 - 有料サービスを用いた実装開始
 - 公開・Release
 
 ### Next Actions
 
-1. 人間がD-014・D-015と最終差分を確認する。
-2. 人間がReview報告書の保存方針と旧文書削除を判断する。
-3. 人間がmainへのマージを判断する。
-4. 承認後、Stage 2の最初の実装Taskを決定する。
+1. Pull Request #1を`main`へマージする。
+2. `main`上のLegacy Filesと参照を確認する。
+3. 別のCleanup Pull RequestでLegacy Files 3件を削除し、検証後に`main`へマージする。
+4. Stage 2の最初の実装Taskを決定する。
 
 ### Restart Procedure
 
@@ -196,7 +194,7 @@ Status: FOCUSED_REVIEW_COMPLETE / HUMAN_FINAL_CONFIRMATION_PENDING / NOT_MERGED
 2. `Docs/00_AI_BOOTSTRAP.md`を読む。
 3. Draft Pull Request [#1](https://github.com/anghel-tomo/ai-game-studio/pull/1)を開く。
 4. `Docs/04_PROJECT_STATUS.md`、`Docs/05_DECISION_LOG.md`のD-014・D-015、本書を確認する。
-5. D-014・D-015、Review報告書保存、旧文書削除、mainマージの人間判断から再開する。
+5. Pull Request #1のマージから再開する。
 
 ---
 
