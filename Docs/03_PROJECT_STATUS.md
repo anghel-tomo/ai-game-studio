@@ -1,5 +1,13 @@
-# Project Status
+# Deprecated: Project Status
 
-Version:1.0
+Version: 1.1.0  
+Last Updated: 2026-08-24  
+Status: DEPRECATED
 
-Phase: Planning Repository: Initialized Next: Complete documentation.
+この文書は新しい文書構成へ移行しました。
+
+現在のProject Statusは、次を参照してください。
+
+- `Docs/04_PROJECT_STATUS.md`
+
+このFileは移行期間中の参照先案内として残しています。削除には人間の明示的な承認が必要です。
