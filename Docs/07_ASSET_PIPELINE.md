@@ -1,7 +1,7 @@
 # Asset Pipeline
 
-Version: 1.1.0  
-Last Updated: 2026-08-25  
+Version: 1.1.1  
+Last Updated: 2026-08-26  
 Status: Active Design / Implementation Pending
 
 ---
@@ -278,6 +278,7 @@ UI画像だけを作成し、状態や遷移を未定義のまま完了としな
 - 共通資産：`Assets/Shared/`
 - Referenceと権利情報：`Assets/References/`、`Assets/Licenses/`
 - ゲーム固有資産：`Games/<game-id>/Assets/`
+- Asset Manifest：`Games/<game-id>/Assets/<asset-id>_manifest.yaml`（`asset-id`はSection 8の`asset_id`と一致させる）
 - Live2D関連：`Games/<game-id>/Assets/Live2D/`
 
 大容量model weight、cache、一時生成物を通常のGit管理へ含めない。必要に応じてGit LFSまたは外部Storageを人間承認のもと利用し、取得方法とhashを記録する。
