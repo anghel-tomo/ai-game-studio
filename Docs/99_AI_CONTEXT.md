@@ -1,7 +1,7 @@
 # AI Context
 
-Version: 1.1.0  
-Last Updated: 2026-08-25  
+Version: 1.2.0  
+Last Updated: 2026-08-26  
 Status: Active
 
 ---
@@ -20,7 +20,7 @@ Status: Active
 |---|---|
 | Project | AI Game Studio |
 | Stage | Stage 1: Governance Foundation |
-| Focus | 修正後のFocused Independent Re-reviewと人間の最終確認 |
+| Focus | Focused Independent Re-review完了後の人間最終確認 |
 | Repository | `anghel-tomo/ai-game-studio` |
 | Default Branch | `main` |
 | Working Branch | `codex/aios-docs-revision` |
@@ -129,7 +129,7 @@ Legacy Filesは3件ともDeprecated化済みで、新文書への参照だけを
 
 ## 7. Current Capability Status
 
-### Documented / Review Finding Remediation Complete
+### Documented / Focused Independent Re-review Complete
 
 - Governance
 - AI Role Framework
@@ -163,12 +163,10 @@ Legacy Filesは3件ともDeprecated化済みで、新文書への参照だけを
 
 ## 8. Immediate Next Actions
 
-1. 修正対象文書をClaude FreeでFocused Independent Re-reviewする。
-2. 再Review Findingを作業Branchへ照合する。
-3. 人間がD-014・D-015と最終差分を確認する。
-4. 人間がReview報告書の保存方針とLegacy Files削除の要否を判断する。
-5. 人間の明示承認後にmainへマージする。
-6. Stage 2の最初のTaskを決定する。
+1. 人間がD-014・D-015と最終差分を確認する。
+2. 人間がReview報告書の保存方針とLegacy Files削除の要否を判断する。
+3. 人間の明示承認後にmainへマージする。
+4. Stage 2の最初のTaskを決定する。
 
 ---
 
