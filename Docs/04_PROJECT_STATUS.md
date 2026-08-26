@@ -1,6 +1,6 @@
 # Project Status
 
-Version: 1.2.0  
+Version: 1.3.0  
 Last Updated: 2026-08-26  
 Status: Active
 
@@ -11,13 +11,13 @@ Status: Active
 | Item | Current State |
 |---|---|
 | Project Stage | Stage 1: Governance Foundation |
-| Overall Status | Focused Independent Re-review Complete / Human Final Confirmation Pending |
+| Overall Status | Human Approval Complete / Merge and Legacy Cleanup Authorized |
 | Repository | `anghel-tomo/ai-game-studio` |
 | Default Branch | `main` |
 | Working Branch | `codex/aios-docs-revision` |
 | Draft Pull Request | [#1](https://github.com/anghel-tomo/ai-game-studio/pull/1) |
-| Current Focus | D-014・D-015と最終差分の人間確認 |
-| Human Decision Required | D-014・D-015の承認、Review報告書の保存方針、旧文書の削除、mainへのマージ |
+| Current Focus | Pull Request #1のマージとLegacy FilesのCleanup |
+| Human Decision Required | 現在の文書Taskにはなし。D-014～D-016承認済み |
 | Next Major Stage | Stage 2: Reusable Production Foundation |
 
 作業ブランチ上の内容は、mainへマージされるまで正式決定ではない。
@@ -44,15 +44,15 @@ Status: Active
 - `REVIEW_04`で新規Critical / Majorが0件、新規MinorがR4-001～R4-003の3件であることを確認した。
 - R4-001～R4-003を反映し、Pilot前提の相互参照、Asset Manifest配置、Role Map改訂日の曖昧さを解消した。
 - R4修正箇所をGitHubから再取得し、15項目の機械確認がすべてPassした。
+- 人間がD-014・D-015を承認した。
+- 人間がReview原文を保存しない方針、Pull Request #1のマージ、マージ後のLegacy Files削除をD-016として承認した。
 
 ---
 
 ## 3. In Progress
 
-- 人間によるD-014・D-015と最終差分の確認
-- Review報告書をGitHubへ保存するかの判断
-- 旧番号文書3件の削除判断
-- mainへのマージ判断
+- Pull Request #1の`main`へのマージ
+- マージ後の別Pull RequestによるLegacy Files 3件の削除と検証
 
 ---
 
@@ -88,6 +88,8 @@ Not Startedの項目を実装済みとして扱ってはならない。
 - Live2D自動化は目標であり、現時点で検証済みとは扱わない。
 - シナリオ制作を独立したPipelineとして管理する。
 - mainへのマージと破壊的操作は人間承認を必要とする。
+- D-014のReview Finding採否とD-015のPilot運用体制を承認済みとする。
+- Review原文はRepositoryへ保存せず、D-014とPull Request要約を正規記録とする。
 
 ---
 
@@ -123,10 +125,10 @@ Not Startedの項目を実装済みとして扱ってはならない。
 
 ## 8. Immediate Next Actions
 
-1. 人間がD-014・D-015と最終差分を確認する。
-2. 人間がReview報告書の保存方針と旧文書削除の要否を判断する。
-3. 人間の明示承認後にmainへマージする。
-4. 承認後、Stage 2の最初の実装Taskを決定する。
+1. Pull Request #1を`main`へマージする。
+2. `main`上のLegacy Filesと参照を確認する。
+3. 別のCleanup Pull RequestでLegacy Files 3件を削除し、検証後に`main`へマージする。
+4. Stage 2の最初の実装Taskを決定する。
 
 ---
 
