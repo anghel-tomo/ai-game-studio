@@ -1,6 +1,6 @@
 # Session Handover
 
-Version: 1.3.0  
+Version: 1.4.0  
 Last Updated: 2026-08-26  
 Status: Active
 
@@ -114,17 +114,17 @@ Fileごとに変更目的を1行で記載する。CommitまたはPull Requestへ
 ## 5. Current Handover
 
 Date: 2026-08-26  
-Session / Task ID: DOCS-FOUNDATION-004  
+Session / Task ID: DOCS-FOUNDATION-005  
 Executor: Codex  
 Repository: `anghel-tomo/ai-game-studio`  
-Working Branch: `codex/aios-docs-revision`  
-Draft Pull Request: [#1](https://github.com/anghel-tomo/ai-game-studio/pull/1)  
+Working Branch: None（承認済み最新状態は`main`）  
+Merged Pull Requests: [#1](https://github.com/anghel-tomo/ai-game-studio/pull/1)、[#2](https://github.com/anghel-tomo/ai-game-studio/pull/2)  
 Base Branch: `main`  
-Status: HUMAN_APPROVED / MERGE_AND_CLEANUP_AUTHORIZED / NOT_MERGED
+Status: COMPLETED / MERGED / LEGACY_REMOVED
 
 ### Goal
 
-人間の最終承認をDecision Logへ記録し、Pull Request #1を`main`へマージした後、Legacy Filesを別のCleanup Pull Requestで削除する。
+人間の最終承認に従ってPull Request #1を`main`へマージし、Legacy Files 3件をPull Request #2で削除して文書基盤を確定する。
 
 ### Completed
 
@@ -144,6 +144,10 @@ Status: HUMAN_APPROVED / MERGE_AND_CLEANUP_AUTHORIZED / NOT_MERGED
 - 修正箇所をGitHubから再取得し、15 / 15項目の機械確認がPass
 - D-014・D-015を人間承認済みとして記録
 - Review原文の非保存、Pull Request #1のマージ、Legacy Files削除をD-016として記録
+- Pull Request #1をSquash Mergeし、D-014～D-016を含む文書基盤を`main`へ反映
+- Legacy Files 3件がすべてDeprecatedであることを再確認して削除
+- 正規17文書とREADMEを再取得し、旧文書へのActive Referenceがないことを確認
+- Cleanup Pull Request #2を`main`へマージ
 
 ### Decisions
 
@@ -164,15 +168,13 @@ Status: HUMAN_APPROVED / MERGE_AND_CLEANUP_AUTHORIZED / NOT_MERGED
 
 ### Not Completed
 
-- Pull Request #1の`main`へのマージ
-- Legacy Files 3件の削除とCleanup Pull Requestのマージ
 - Stage 2以降の実装
 
 ### Blockers and Risks
 
 文書修正にBlockerはない。
 
-実装面では、Colab/ComfyUI接続、Unity操作、Live2D自動化、モデル評価が未検証である。D-014～D-016は人間承認済みだが、現在はまだ`main`へ未反映である。
+実装面では、Colab/ComfyUI接続、Unity操作、Live2D自動化、モデル評価が未検証である。文書基盤とD-014～D-016は`main`へ反映済みである。
 
 ### Human Approval Required
 
@@ -183,18 +185,17 @@ Status: HUMAN_APPROVED / MERGE_AND_CLEANUP_AUTHORIZED / NOT_MERGED
 
 ### Next Actions
 
-1. Pull Request #1を`main`へマージする。
-2. `main`上のLegacy Filesと参照を確認する。
-3. 別のCleanup Pull RequestでLegacy Files 3件を削除し、検証後に`main`へマージする。
-4. Stage 2の最初の実装Taskを決定する。
+1. Stage 2の最初の実装Taskを決定する。
+2. モデルレジストリまたはUnity Templateのどちらから開始するか人間が選ぶ。
+3. 選定したTaskのTask Packetと検証計画を作成する。
 
 ### Restart Procedure
 
 1. `Docs/99_AI_CONTEXT.md`を読む。
 2. `Docs/00_AI_BOOTSTRAP.md`を読む。
-3. Draft Pull Request [#1](https://github.com/anghel-tomo/ai-game-studio/pull/1)を開く。
-4. `Docs/04_PROJECT_STATUS.md`、`Docs/05_DECISION_LOG.md`のD-014・D-015、本書を確認する。
-5. Pull Request #1のマージから再開する。
+3. Merged Pull Request [#1](https://github.com/anghel-tomo/ai-game-studio/pull/1)と[#2](https://github.com/anghel-tomo/ai-game-studio/pull/2)を必要に応じて確認する。
+4. `Docs/04_PROJECT_STATUS.md`、`Docs/05_DECISION_LOG.md`のD-014～D-016、本書を確認する。
+5. Stage 2の最初のTask選定から再開する。
 
 ---
 

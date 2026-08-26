@@ -1,7 +1,7 @@
 # Repository Structure
 
-Version: 1.1.0  
-Last Updated: 2026-08-25  
+Version: 1.2.0  
+Last Updated: 2026-08-26  
 Status: Active Design / Migration Pending
 
 ---
@@ -297,20 +297,14 @@ workflow、template、schemaは互換性を意識してVersionを付ける。
 
 ## 10. Document Migration
 
-最終構成では次を使用する。
+文書番号移行はD-016とPull Request #2により完了した。正規構成では次を使用する。
 
 - `Docs/02_AI_ROLES.md`
 - `Docs/03_AI_RULES.md`
 - `Docs/04_PROJECT_STATUS.md`
 - `Docs/12_SESSION_HANDOVER.md`
 
-旧文書：
-
-- `Docs/02_AI_RULES.md`
-- `Docs/03_PROJECT_STATUS.md`
-- `Docs/04_SESSION_HANDOVER.md`
-
-旧文書は新文書への参照だけを残してDeprecated化する。削除は人間の明示的な承認後に行う。
+Deprecated化されていた旧番号文書3件は削除済みである。互換目的で再作成せず、履歴が必要な場合はGitまたはD-016を参照する。
 
 ---
 

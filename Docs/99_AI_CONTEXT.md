@@ -1,6 +1,6 @@
 # AI Context
 
-Version: 1.3.0  
+Version: 1.4.0  
 Last Updated: 2026-08-26  
 Status: Active
 
@@ -19,13 +19,13 @@ Status: Active
 | Item | Current State |
 |---|---|
 | Project | AI Game Studio |
-| Stage | Stage 1: Governance Foundation |
-| Focus | Pull Request #1のマージとLegacy FilesのCleanup |
+| Stage | Stage 1 Complete / Stage 2 Ready |
+| Focus | Stage 2の最初の実装Task選定 |
 | Repository | `anghel-tomo/ai-game-studio` |
 | Default Branch | `main` |
-| Working Branch | `codex/aios-docs-revision` |
-| Working Branch Status | mainへ未マージ |
-| Draft Pull Request | [#1](https://github.com/anghel-tomo/ai-game-studio/pull/1) |
+| Working Branch | None（承認済み最新状態は`main`） |
+| Working Branch Status | Cleanup完了、`main`が最新 |
+| Merged Pull Requests | [#1](https://github.com/anghel-tomo/ai-game-studio/pull/1)、[#2](https://github.com/anghel-tomo/ai-game-studio/pull/2) |
 | Implementation Status | 主要フォルダはプレースホルダー。Unity等は未実装 |
 | Next Decision | Stage 2の最初の実装Task |
 
@@ -70,7 +70,7 @@ Role別手順が必要な場合は `Docs/92_AI_PLAYBOOK.md` を読む。
 - 破壊的操作とmainへのマージは人間承認を必要とする。
 - D-014のReview Finding採否とD-015のPilot運用体制は承認済みである。
 - Review原文はRepositoryへ保存せず、D-014とPull Request要約を正規記録とする。
-- Pull Request #1のマージと、その後のLegacy Files 3件の削除はD-016で承認済みである。
+- Pull Request #1のマージとLegacy Files 3件の削除は、D-016に従って完了済みである。
 
 詳細は `Docs/05_DECISION_LOG.md` を参照する。
 
@@ -120,13 +120,9 @@ Role別手順が必要な場合は `Docs/92_AI_PLAYBOOK.md` を読む。
 - `93_AI_TASK_PROTOCOL.md`
 - `99_AI_CONTEXT.md`
 
-### Legacy Files
+### Legacy Cleanup Complete
 
-- `02_AI_RULES.md`
-- `03_PROJECT_STATUS.md`
-- `04_SESSION_HANDOVER.md`
-
-Legacy Filesは3件ともDeprecated化済みで、新文書への参照だけを残している。D-016により、Pull Request #1のマージ後に別のCleanup Pull Requestで削除することが承認済みである。
+Deprecated化されていた旧番号文書3件は、D-016とPull Request #2により削除済みである。正規文書は上記17件だけを使用し、旧文書を再作成しない。
 
 ---
 
@@ -166,10 +162,9 @@ Legacy Filesは3件ともDeprecated化済みで、新文書への参照だけを
 
 ## 8. Immediate Next Actions
 
-1. Pull Request #1を`main`へマージする。
-2. `main`上のLegacy Filesと参照を確認する。
-3. 別のCleanup Pull RequestでLegacy Files 3件を削除し、検証後に`main`へマージする。
-4. Stage 2の最初のTaskを決定する。
+1. Stage 2の最初のTaskを決定する。
+2. モデルレジストリまたはUnity Templateのどちらから開始するか人間が選ぶ。
+3. 選定したTaskのTask Packetと検証計画を作成する。
 
 ---
 
