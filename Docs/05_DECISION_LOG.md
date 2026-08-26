@@ -1,7 +1,7 @@
 # Decision Log
 
-Version: 1.1.0  
-Last Updated: 2026-08-25  
+Version: 1.2.0  
+Last Updated: 2026-08-26  
 Status: Active
 
 ---
@@ -135,7 +135,7 @@ Status: Active
 ### D-014: 独立Review Findingの採否と修正方針
 
 - Date: 2026-08-25
-- Status: PROPOSED
+- Status: ACCEPTED
 - Decision: 3回のClaude Free ReviewをFinding ID単位で照合し、実在する矛盾・欠落を修正する。重複、依頼文の誤記、Repositoryに存在しない前提に基づく指摘は理由付きで不採用とする。
 - Accepted Findings: R1-001～R1-011、R2-001～R2-010、R2-012、R3-005、R3-007。R3-001はStatus / Handover更新の時点差として是正するが、「Review→Fix運用が機能していない」という評価は採用しない。
 - Rejected Findings:
@@ -144,14 +144,29 @@ Status: Active
   - R3-008：`99_DOCUMENT_MAP.md` はReview依頼文側の誤記であり、Repositoryの正規Fileは `99_AI_CONTEXT.md` である。
 - Reason: 独立Reviewを尊重しつつ、Reviewerの推測や時点差をSSOTへ誤反映しないため。
 - Consequence: 修正後にFocused Re-reviewを行い、人間が本Decisionと差分を承認するまでmainへマージしない。
+- Human Approval: 2026-08-26、Human Project Ownerが承認。
 
 ### D-015: Pilot期間のOrchestratorとRelease Coordinator
 
 - Date: 2026-08-25
-- Status: PROPOSED
+- Status: ACCEPTED
 - Decision: AIOS OrchestratorがActiveとして検証されるまで、Human Project Ownerが暫定Orchestratorとなり、手動実行またはProject Managerへ明示委任する。Release Coordinatorの実行主体はProject Managerとし、検証済みAIOS Release WorkflowはAlternativeとする。
 - Reason: 未検証の自動Orchestratorを前提にせず、Task Router、Review、Release準備の責任主体を明確にするため。
 - Consequence: Task Packetへ実行主体と委任範囲を記録する。自動化への切替はCapability Validationと人間承認後に行う。
+- Human Approval: 2026-08-26、Human Project Ownerが承認。
+
+### D-016: Review記録、Legacy Files削除、main統合方針
+
+- Date: 2026-08-26
+- Status: ACCEPTED
+- Decision:
+  - `REVIEW_01`～`REVIEW_04`の原文はRepositoryへ保存せず、D-014とPull Request要約を正規記録とする。
+  - Draft Pull Request #1を`main`へマージする。
+  - マージ後、Deprecated化済みの`Docs/02_AI_RULES.md`、`Docs/03_PROJECT_STATUS.md`、`Docs/04_SESSION_HANDOVER.md`を確認し、別のCleanup Pull Requestで削除して`main`へマージする。
+- Reason: Review結果の要点をSSOTへ残しつつ、外部添付の重複保存を避け、旧番号文書による誤読リスクを解消するため。
+- Consequence: 正規文書は新しい17文書へ一本化される。Cleanup完了まで旧文書はDeprecatedとして扱う。
+- Human Approval: 2026-08-26、Human Project Ownerが承認。
+- Related Files: `Docs/04_PROJECT_STATUS.md`、`Docs/12_SESSION_HANDOVER.md`、`Docs/99_AI_CONTEXT.md`、Pull Request #1
 
 ---
 
